@@ -1,0 +1,100 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl7w6k2h2kd53"]
+
+[ext_resource type="PackedScene" uid="uid://grraf3qe4h68" path="res://block.tscn" id="1_70jch"]
+[ext_resource type="PackedScene" uid="uid://bel3h7da0j7nv" path="res://player.tscn" id="2_ek5n7"]
+
+[node name="world" type="Node2D"]
+position = Vector2(-9, 0)
+
+[node name="block" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(36, 144)
+
+[node name="block2" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(54, 90)
+
+[node name="block3" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(72, 90)
+
+[node name="block4" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(90, 90)
+
+[node name="block5" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(108, 90)
+
+[node name="block10" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(108, 72)
+
+[node name="block11" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(144, 54)
+
+[node name="block6" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(126, 90)
+
+[node name="block7" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(144, 90)
+
+[node name="block12" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(180, 90)
+
+[node name="block13" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(198, 72)
+
+[node name="block14" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(198, 54)
+
+[node name="block15" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(198, 90)
+
+[node name="block16" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(234, 108)
+
+[node name="block22" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(198, 108)
+
+[node name="block23" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(234, 144)
+
+[node name="block17" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(198, 36)
+
+[node name="block18" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(180, 36)
+
+[node name="block19" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(198, 18)
+
+[node name="block20" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(216, 54)
+
+[node name="block30" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(234, 90)
+
+[node name="block21" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(216, 108)
+
+[node name="block8" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(18, 108)
+
+[node name="block9" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(162, 90)
+
+[node name="block24" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(252, 108)
+
+[node name="block25" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(270, 108)
+
+[node name="block26" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(288, 108)
+
+[node name="block27" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(324, 108)
+
+[node name="block28" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(342, 108)
+
+[node name="block29" parent="." instance=ExtResource("1_70jch")]
+position = Vector2(306, 108)
+
+[node name="player" parent="." instance=ExtResource("2_ek5n7")]
+position = Vector2(72, 72)
