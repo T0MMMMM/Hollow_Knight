@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var SPEED = 90.0
 @export var SPEED_RUN = 110.0
+@export var DOUBLE_JUMP = 1
 @export var JUMP_FORCE = 200.0
 @export var JUMP_RELEASED_FORCE = 100.0
 @export var ACCELERATION = 10.0
@@ -48,13 +49,18 @@ func _physics_process(delta):
 	# Handle Jump.
 	if is_on_floor():
 		fast_fell = false
-		if Input.is_action_pressed("jump"):
+		if Input.is_action_just_pressed("jump"):
 			velocity.y = -JUMP_FORCE
 			jump = true
+			DOUBLE_JUMP = 1
 			$AnimatedSprite2D.play("idle") # reset l'animation
 	else:
 		if Input.is_action_just_released("jump") and velocity.y < -JUMP_RELEASED_FORCE:
 			velocity.y = -JUMP_RELEASED_FORCE
+		
+		if Input.is_action_just_pressed("jump") and DOUBLE_JUMP > 0:
+			velocity.y = -JUMP_FORCE
+			DOUBLE_JUMP -= 1
 		
 		if Input.is_action_pressed("down"):
 			velocity.y += ADDITIONAL_JUMP_GRAVITY_DOWN

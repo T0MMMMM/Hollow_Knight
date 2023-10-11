@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3 uid="uid://u1e253vs8v33"]
+
+[ext_resource type="Script" path="res://walking_enemy.gd" id="1_4s5ps"]
+[ext_resource type="Texture2D" uid="uid://xwtx6not6hqs" path="res://demon/big_demon_idle_anim_f0.png" id="1_f2pxr"]
+[ext_resource type="Texture2D" uid="uid://pmh0tsul5cml" path="res://demon/big_demon_idle_anim_f1.png" id="2_w1h66"]
+[ext_resource type="Texture2D" uid="uid://bc7tjghr7ivon" path="res://demon/big_demon_idle_anim_f2.png" id="3_rgmbf"]
+[ext_resource type="Texture2D" uid="uid://cytgftbo0lysr" path="res://demon/big_demon_idle_anim_f3.png" id="4_keri7"]
+[ext_resource type="Texture2D" uid="uid://bhkxleynh2ac3" path="res://demon/big_demon_run_anim_f0.png" id="6_frxfg"]
+[ext_resource type="Texture2D" uid="uid://beaki458xo1u4" path="res://demon/big_demon_run_anim_f1.png" id="7_a5sa2"]
+[ext_resource type="Texture2D" uid="uid://4foy730sgr02" path="res://demon/big_demon_run_anim_f3.png" id="8_o2qrp"]
+[ext_resource type="Texture2D" uid="uid://brx74t4xjau7b" path="res://demon/big_demon_run_anim_f2.png" id="9_kmc7o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3jckj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_f2pxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_w1h66")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rgmbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_keri7")
+}],
+"loop": true,
+"name": &"stay",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_frxfg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_a5sa2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_o2qrp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kmc7o")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ommy"]
+size = Vector2(20, 28)
+
+[node name="WalkingEnemy" type="CharacterBody2D"]
+script = ExtResource("1_4s5ps")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_3jckj")
+animation = &"walk"
+frame_progress = 0.182219
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_8ommy")
