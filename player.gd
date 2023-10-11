@@ -24,6 +24,7 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		velocity.y = min(velocity.y, 250)
 		jump = true
 
 	# Get the input direction and handle the movement/deceleration.
