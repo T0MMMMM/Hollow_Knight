@@ -48,7 +48,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ommy"]
-size = Vector2(20, 28)
+size = Vector2(26, 33)
 
 [node name="WalkingEnemy" type="CharacterBody2D"]
 script = ExtResource("1_4s5ps")
@@ -57,8 +57,7 @@ script = ExtResource("1_4s5ps")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_3jckj")
 animation = &"walk"
-frame_progress = 0.182219
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(-1, 2.5)
 shape = SubResource("RectangleShape2D_8ommy")
