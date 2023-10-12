@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://btqgn21k6d4p7"]
+
+[ext_resource type="Texture2D" uid="uid://dv6mlnukuh60o" path="res://donjon.png" id="1_dtjcp"]
+
+[sub_resource type="Curve2D" id="Curve2D_cdk16"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 30.9278, -3.09278)
+}
+point_count = 1
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aevka"]
+radius = 7.66622
+height = 17.4656
+
+[sub_resource type="Animation" id="Animation_o1stp"]
+resource_name = "MoveAlongPathBounce"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_4adpf"]
+resource_name = "MoveAlongPathLoop"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_x6yru"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ckxe6"]
+_data = {
+"MoveAlongPathBounce": SubResource("Animation_o1stp"),
+"MoveAlongPathLoop": SubResource("Animation_4adpf"),
+"RESET": SubResource("Animation_x6yru")
+}
+
+[node name="MovingSpikeEnemy" type="Path2D"]
+position = Vector2(-33, 2)
+scale = Vector2(0.97, 0.97)
+curve = SubResource("Curve2D_cdk16")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(30.9278, -3.09278)
+rotation = -2.4859
+scale = Vector2(0.97, 0.97)
+
+[node name="Enemy" type="CharacterBody2D" parent="PathFollow2D" groups=["Enemy"]]
+position = Vector2(-3.17524, 1.10161)
+rotation = 4.12552
+scale = Vector2(0.97, 0.97)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/Enemy"]
+texture_filter = 1
+position = Vector2(-0.639526, 2.43596)
+rotation = -1.01156
+scale = Vector2(0.97, 0.97)
+texture = ExtResource("1_dtjcp")
+region_enabled = true
+region_rect = Rect2(128.543, 204.393, 16.1616, 21.6713)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Enemy"]
+position = Vector2(-1.67983, 2.82559)
+rotation = -1.01752
+shape = SubResource("CapsuleShape2D_aevka")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+autoplay = "MoveAlongPathLoop"
+libraries = {
+"": SubResource("AnimationLibrary_ckxe6")
+}
