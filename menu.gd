@@ -16,7 +16,7 @@ func _on_play_pressed():
 
 
 func _on_option_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://option.tscn")
 
 
 func _on_quit_pressed():

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl7w6k2h2kd53"]
+[gd_scene load_steps=7 format=3 uid="uid://cl7w6k2h2kd53"]
 
 [ext_resource type="PackedScene" uid="uid://clq0wjwcul8re" path="res://tile_map.tscn" id="1_e16c0"]
+[ext_resource type="Script" path="res://world.gd" id="1_indst"]
 [ext_resource type="PackedScene" uid="uid://bel3h7da0j7nv" path="res://player.tscn" id="2_ek5n7"]
 [ext_resource type="PackedScene" uid="uid://u1e253vs8v33" path="res://walking_enemy.tscn" id="3_bxknm"]
 [ext_resource type="PackedScene" uid="uid://btqgn21k6d4p7" path="res://moving_spike_enemy.tscn" id="4_f6acm"]
@@ -13,6 +14,7 @@ point_count = 5
 
 [node name="world" type="Node2D"]
 position = Vector2(-9, 0)
+script = ExtResource("1_indst")
 
 [node name="player" parent="." instance=ExtResource("2_ek5n7")]
 position = Vector2(14, 92)
