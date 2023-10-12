@@ -17,6 +17,7 @@ var walk = false
 var jumping = false
 var run = false
 var attack = false
+var direction = "right"
 
 func _physics_process(delta):
 	walk = false
@@ -30,7 +31,7 @@ func _physics_process(delta):
 		velocity.y = min(velocity.y, 250)
 	
 	# Attack
-	if Input.is_action_pressed("attack") || $AnimationPlayer.current_animation == "attack": #|| ($AnimationPlayer.animation == "attack" && $AnimationPlayer.frame < 7):
+	if Input.is_action_pressed("attack") || $AnimationPlayer.current_animation == "attack" || $AnimationPlayer.current_animation == "attack_2": #|| ($AnimationPlayer.animation == "attack" && $AnimationPlayer.frame < 7):
 		attack = true
 	
 	
@@ -38,6 +39,10 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input = Vector2.ZERO
 	input.x = Input.get_action_strength("right") - Input.get_action_strength("left")
+	if Input.get_action_strength("left"):
+		direction = "left"
+	if Input.get_action_strength("right"):
+		direction = "right"
 	
 	
 	
@@ -47,6 +52,7 @@ func _physics_process(delta):
 		apply_acceleration(input.x, SPEED_RUN)
 		run = true
 		$Sprite2D.flip_h = velocity.x < 0
+		
 	else:
 		apply_acceleration(input.x, SPEED)
 		walk = true
@@ -81,8 +87,10 @@ func _physics_process(delta):
 			velocity.y += ADDITIONAL_JUMP_GRAVITY
 			fast_fell = true
 	
-	if attack:
+	if attack && direction == "right" && !$AnimationPlayer.current_animation == "attack_2":
 		$AnimationPlayer.play("attack")
+	elif attack && direction == "left" && !$AnimationPlayer.current_animation == "attack":
+		$AnimationPlayer.play("attack_2")
 	elif jumping:
 		$AnimationPlayer.play("jump")
 	elif run:
