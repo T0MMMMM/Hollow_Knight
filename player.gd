@@ -14,13 +14,13 @@ extends CharacterBody2D
 @export var gravity = 575
 var fast_fell = false
 var walk = false
-var jump = false
+var jumping = false
 var run = false
 var attack = false
 
 func _physics_process(delta):
 	walk = false
-	jump = false
+	jumping = false
 	run = false
 	attack = false
 	
@@ -28,8 +28,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		velocity.y = min(velocity.y, 250)
-		jump = true
-		
+	
 	# Attack
 	if Input.is_action_pressed("attack") || $AnimationPlayer.current_animation == "attack": #|| ($AnimationPlayer.animation == "attack" && $AnimationPlayer.frame < 7):
 		attack = true
@@ -60,9 +59,11 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = -JUMP_FORCE
 			if !attack:
-				jump = true
+				jumping = true
 				$AnimationPlayer.play("idle") # reset l'animation
 	else:
+		if $AnimationPlayer.current_animation_position < 7 && $AnimationPlayer.current_animation == "jump":
+			jumping = true
 		if Input.is_action_just_released("jump") and velocity.y < -JUMP_RELEASED_FORCE:
 			velocity.y = -JUMP_RELEASED_FORCE
 		
@@ -70,7 +71,7 @@ func _physics_process(delta):
 			velocity.y = -JUMP_FORCE
 			DOUBLE_JUMP -= 1
 			if !attack:
-				jump = true
+				jumping = true
 				$AnimationPlayer.play("idle")
 		
 		if Input.is_action_pressed("down"):
@@ -82,7 +83,7 @@ func _physics_process(delta):
 	
 	if attack:
 		$AnimationPlayer.play("attack")
-	elif jump:
+	elif jumping:
 		$AnimationPlayer.play("jump")
 	elif run:
 		$AnimationPlayer.play("run")
