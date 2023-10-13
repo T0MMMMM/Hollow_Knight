@@ -16,8 +16,8 @@ script = ExtResource("1_8lcyr")
 
 [node name="background" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(160, 89)
-scale = Vector2(0.166667, 0.168519)
+position = Vector2(160, 90)
+scale = Vector2(0.167, 0.167)
 texture = ExtResource("2_fcrn8")
 
 [node name="Gui" type="Sprite2D" parent="."]
@@ -51,7 +51,7 @@ layout_mode = 2
 theme = ExtResource("2_f2u5q")
 text = "Option"
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme = ExtResource("2_f2u5q")
@@ -59,4 +59,4 @@ text = "Exit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Option" to="." method="_on_option_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

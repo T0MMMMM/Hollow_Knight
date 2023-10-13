@@ -17,7 +17,7 @@ var walk = false
 var jumping = false
 var run = false
 var attack = false
-var direction = "right"
+var dir = false
 
 func _physics_process(delta):
 	walk = false
@@ -39,11 +39,6 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input = Vector2.ZERO
 	input.x = Input.get_action_strength("right") - Input.get_action_strength("left")
-	if Input.get_action_strength("left"):
-		direction = "left"
-	if Input.get_action_strength("right"):
-		direction = "right"
-	
 	
 	
 	if input.x == 0:
@@ -51,12 +46,14 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("shift"):
 		apply_acceleration(input.x, SPEED_RUN)
 		run = true
-		$Sprite2D.flip_h = velocity.x < 0
-		
+		if !attack: $Sprite2D.flip_h = velocity.x < 0
+		else: dir = velocity.x < 0
 	else:
 		apply_acceleration(input.x, SPEED)
 		walk = true
-		$Sprite2D.flip_h = velocity.x < 0
+		if !attack: $Sprite2D.flip_h = velocity.x < 0
+		else: dir = velocity.x < 0
+	
 	
 	# Handle Jump.
 	if is_on_floor():
@@ -68,8 +65,10 @@ func _physics_process(delta):
 				jumping = true
 				$AnimationPlayer.play("idle") # reset l'animation
 	else:
-		if $AnimationPlayer.current_animation_position < 7 && $AnimationPlayer.current_animation == "jump":
-			jumping = true
+		if $AnimationPlayer.is_playing():
+			if $AnimationPlayer.current_animation_position < 7 && $AnimationPlayer.current_animation == "jump":
+				jumping = true
+		
 		if Input.is_action_just_released("jump") and velocity.y < -JUMP_RELEASED_FORCE:
 			velocity.y = -JUMP_RELEASED_FORCE
 		
@@ -87,9 +86,9 @@ func _physics_process(delta):
 			velocity.y += ADDITIONAL_JUMP_GRAVITY
 			fast_fell = true
 	
-	if attack && direction == "right" && !$AnimationPlayer.current_animation == "attack_2":
+	if attack && $Sprite2D.flip_h == false && !$AnimationPlayer.current_animation == "attack_2":
 		$AnimationPlayer.play("attack")
-	elif attack && direction == "left" && !$AnimationPlayer.current_animation == "attack":
+	elif attack && $Sprite2D.flip_h == true && !$AnimationPlayer.current_animation == "attack":
 		$AnimationPlayer.play("attack_2")
 	elif jumping:
 		$AnimationPlayer.play("jump")
@@ -109,7 +108,12 @@ func apply_friction():
 func apply_acceleration(amount, speed):
 	velocity.x = move_toward(velocity.x, speed * amount, ACCELERATION)
 
-
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Enemy"):
 		body.queue_free()
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "attack":
+		$Sprite2D.flip_h = dir#pass#turn(dir)
+
