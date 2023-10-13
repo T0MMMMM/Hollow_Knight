@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://btqgn21k6d4p7"]
+[gd_scene load_steps=9 format=3 uid="uid://btqgn21k6d4p7"]
 
 [ext_resource type="Texture2D" uid="uid://dv6mlnukuh60o" path="res://donjon.png" id="1_dtjcp"]
+[ext_resource type="Script" path="res://Enemy.gd" id="1_of0ow"]
 
 [sub_resource type="Curve2D" id="Curve2D_cdk16"]
 _data = {
@@ -82,6 +83,7 @@ scale = Vector2(0.97, 0.97)
 position = Vector2(-3.17524, 1.10161)
 rotation = 4.12552
 scale = Vector2(0.97, 0.97)
+script = ExtResource("1_of0ow")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/Enemy"]
@@ -98,9 +100,14 @@ position = Vector2(-1.67983, 2.82559)
 rotation = -1.01752
 shape = SubResource("CapsuleShape2D_aevka")
 
+[node name="Timer" type="Timer" parent="PathFollow2D/Enemy"]
+wait_time = 0.213
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_mode = 3
 autoplay = "MoveAlongPathLoop"
 libraries = {
 "": SubResource("AnimationLibrary_ckxe6")
 }
+
+[connection signal="timeout" from="PathFollow2D/Enemy/Timer" to="PathFollow2D/Enemy" method="_on_timer_timeout"]

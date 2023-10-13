@@ -110,7 +110,7 @@ func apply_acceleration(amount, speed):
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Enemy"):
-		body.queue_free()
+		body.take_damage()
 
 
 func _on_animation_player_animation_finished(anim_name):

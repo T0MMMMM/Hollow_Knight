@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7u8bmketnmtv"]
+
+[ext_resource type="Script" path="res://Walking_ennemy.gd" id="1_0kk26"]
+[ext_resource type="Texture2D" uid="uid://dv6mlnukuh60o" path="res://donjon.png" id="2_8m20b"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7kshn"]
+radius = 5.99725
+height = 16.0532
+
+[node name="Walking_ennemy" type="CharacterBody2D" groups=["Enemy"]]
+position = Vector2(2, -3)
+script = ExtResource("1_0kk26")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.639526, 2.43596)
+rotation = 0.00790656
+scale = Vector2(0.97, 0.97)
+texture = ExtResource("2_8m20b")
+region_enabled = true
+region_rect = Rect2(128.543, 204.393, 16.1616, 21.6713)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+rotation = -0.0302823
+shape = SubResource("CapsuleShape2D_7kshn")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.213
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
