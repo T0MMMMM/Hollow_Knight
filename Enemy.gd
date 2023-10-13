@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var LIFE = 50
+@export var LIFE = 500
 var direction = Vector2.RIGHT
 
 func _physics_process(delta):

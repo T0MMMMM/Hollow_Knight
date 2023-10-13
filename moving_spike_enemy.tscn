@@ -9,9 +9,8 @@ _data = {
 }
 point_count = 1
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aevka"]
-radius = 7.66622
-height = 17.4656
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7jjt"]
+size = Vector2(9.81199, 16.3142)
 
 [sub_resource type="Animation" id="Animation_o1stp"]
 resource_name = "MoveAlongPathBounce"
@@ -96,9 +95,10 @@ region_enabled = true
 region_rect = Rect2(128.543, 204.393, 16.1616, 21.6713)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Enemy"]
-position = Vector2(-1.67983, 2.82559)
+position = Vector2(-1.42247, 2.31971)
 rotation = -1.01752
-shape = SubResource("CapsuleShape2D_aevka")
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_g7jjt")
 
 [node name="Timer" type="Timer" parent="PathFollow2D/Enemy"]
 wait_time = 0.213

@@ -46,12 +46,15 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("shift"):
 		apply_acceleration(input.x, SPEED_RUN)
 		run = true
-		if !attack: $Sprite2D.flip_h = velocity.x < 0
+		if !attack: 
+			$Sprite2D.flip_h = velocity.x < 0
 		else: dir = velocity.x < 0
 	else:
 		apply_acceleration(input.x, SPEED)
 		walk = true
-		if !attack: $Sprite2D.flip_h = velocity.x < 0
+		if !attack: 
+			$Sprite2D.flip_h = velocity.x < 0
+			
 		else: dir = velocity.x < 0
 	
 	
@@ -98,6 +101,7 @@ func _physics_process(delta):
 		$AnimationPlayer.play("walk")
 	else:
 		$AnimationPlayer.play("idle")
+	
 	up_direction = Vector2.UP
 	move_and_slide()
 	
@@ -114,6 +118,10 @@ func _on_area_2d_body_entered(body):
 
 
 func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "attack":
-		$Sprite2D.flip_h = dir#pass#turn(dir)
+	if anim_name == "attack" || anim_name == "attack_2":
+		$Sprite2D.flip_h = dir
 
+
+func _on_animation_player_animation_started(anim_name):
+	if anim_name == "attack" || anim_name == "attack_2":
+		GlobalVariable.update_player_dir(self)
