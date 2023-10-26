@@ -1,0 +1,121 @@
+[gd_scene load_steps=13 format=3 uid="uid://wu1bgooeqvfb"]
+
+[ext_resource type="PackedScene" uid="uid://cus0dgndulm1y" path="res://player.tscn" id="1_o1dam"]
+[ext_resource type="PackedScene" uid="uid://3a5vge57q5rf" path="res://cube.tscn" id="2_k7ti0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0jsrj"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_l32ox"]
+sky_material = SubResource("ProceduralSkyMaterial_0jsrj")
+
+[sub_resource type="Environment" id="Environment_v3s0t"]
+background_mode = 2
+sky = SubResource("Sky_l32ox")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2yssy"]
+albedo_color = Color(0.686275, 1, 1, 1)
+metallic = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_vy0ux"]
+material = SubResource("StandardMaterial3D_2yssy")
+size = Vector2(40, 40)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1o2yy"]
+data = PackedVector3Array(100, -5, 0, -100, -5, 0, 100, 5, 0, -100, -5, 0, -100, 5, 0, 100, 5, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qtdxa"]
+albedo_color = Color(0.211765, 0.054902, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jwojq"]
+albedo_color = Color(0.211765, 0.054902, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7lpw0"]
+albedo_color = Color(0.976471, 0.588235, 0.694118, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rnqy8"]
+albedo_color = Color(0.211765, 0.054902, 0, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.755925, 0.0574837, -0.652129, 0.295449, 0.858969, 0.41819, 0.584198, -0.508791, 0.632333, -30, 55, 84)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0434624, 0, 0.999055, 0, 1, 0, -0.999055, 0, 0.0434624, 54.9671, 55, 84)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_v3s0t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_vy0ux")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_1o2yy")
+
+[node name="Player" parent="." instance=ExtResource("1_o1dam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0398991, 1.2249, -1.02905)
+
+[node name="Cube" parent="." instance=ExtResource("2_k7ti0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, -1)
+
+[node name="MeshInstance3D" parent="Cube" index="0"]
+transform = Transform3D(3, 0, 0, 0, 60, 0, 0, 0, 30, 0, 28.8405, -5.51455)
+material_override = SubResource("StandardMaterial3D_qtdxa")
+
+[node name="Cube2" parent="." instance=ExtResource("2_k7ti0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -1)
+
+[node name="Cube3" parent="." instance=ExtResource("2_k7ti0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1, -1)
+
+[node name="MeshInstance3D" parent="Cube3" index="0"]
+transform = Transform3D(3, 0, 0, 0, 50, 0, 0, 0, 40, 0, 22.9991, -7.69059)
+material_override = SubResource("StandardMaterial3D_jwojq")
+
+[node name="Cube4" parent="." instance=ExtResource("2_k7ti0")]
+transform = Transform3D(0.707107, 0, 3.53553, 0, 1, 0, -0.707107, 0, 3.53553, 0, 10, -1)
+
+[node name="Cube5" parent="." instance=ExtResource("2_k7ti0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7179, 16.9632, -1)
+
+[node name="Cube6" parent="." instance=ExtResource("2_k7ti0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2995, 23.7812, -1)
+
+[node name="MeshInstance3D" parent="Cube6" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -3.95771)
+material_override = SubResource("StandardMaterial3D_7lpw0")
+
+[node name="Cube7" parent="." instance=ExtResource("2_k7ti0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1547, 32.2991, -1)
+
+[node name="MeshInstance3D" parent="Cube7" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -3.79733)
+material_override = SubResource("StandardMaterial3D_7lpw0")
+
+[node name="Cube8" parent="." instance=ExtResource("2_k7ti0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18257, 41.5441, -1)
+
+[node name="MeshInstance3D" parent="Cube8" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+material_override = SubResource("StandardMaterial3D_7lpw0")
+
+[node name="Cube9" parent="." instance=ExtResource("2_k7ti0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.183, 1.67511, -18.7336)
+
+[node name="MeshInstance3D" parent="Cube9" index="0"]
+transform = Transform3D(20, 0, 0, 0, 50, 0, 0, 0, 3, -11.0069, 22.8114, 8)
+material_override = SubResource("StandardMaterial3D_rnqy8")
+
+[editable path="Cube"]
+[editable path="Cube3"]
+[editable path="Cube6"]
+[editable path="Cube7"]
+[editable path="Cube8"]
+[editable path="Cube9"]
