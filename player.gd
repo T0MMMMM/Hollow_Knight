@@ -8,10 +8,16 @@ const JUMP_FORCE = 22.0
 @export var DOUBLE_JUMP = 1
 var gravity = 52
 
+var life = 100
+
+var damage_collision = true
+
+func _process(delta):
+	$life.text = str(life)
 
 func _physics_process(delta):
 	# Add the gravity.
-	velocity.z = 0
+	position.z = 0
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		velocity.y = min(velocity.y, 250)
@@ -39,3 +45,21 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+	# COLLISION
+	if damage_collision:
+		for index in get_slide_collision_count():
+			var collision = get_slide_collision(index)
+			if collision.get_collider().is_in_group("enemy"):# || collision.get_collider().is_in_group("tears"):
+				hit(collision.get_collider())
+				
+
+func hit(mob):
+	life -= 10
+	velocity.y += 13
+	velocity.x += 50 * mob.direction.x
+	damage_collision = false
+	$no_collision.start()
+
+func _on_no_collision_timeout():
+	damage_collision = true

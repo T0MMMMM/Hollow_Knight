@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bv05baq0tpssi"]
+
+[ext_resource type="PackedScene" uid="uid://wu1bgooeqvfb" path="res://node_3d.tscn" id="1_kmxea"]
+[ext_resource type="Script" path="res://node.gd" id="1_vkao5"]
+[ext_resource type="Texture2D" uid="uid://blofc4advhhlg" path="res://icon.svg" id="2_8rhkr"]
+[ext_resource type="Texture2D" uid="uid://bhce73710vjy7" path="res://bg.jpeg" id="4_kvca7"]
+
+[node name="Node" type="Node2D"]
+script = ExtResource("1_vkao5")
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(540, 359)
+scale = Vector2(0.561458, 0.666667)
+texture = ExtResource("4_kvca7")
+
+[node name="screen" type="Sprite2D" parent="."]
+position = Vector2(542, 330)
+scale = Vector2(1.02344, 0.921875)
+texture = ExtResource("2_8rhkr")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1080, 850)
+
+[node name="Node3D" parent="SubViewport" instance=ExtResource("1_kmxea")]

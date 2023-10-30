@@ -15,6 +15,14 @@ run/main_scene="res://node_3d.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=720
+window/max_fps=0
+window/enabled=false
+window/default_gravity=9.8
+
 [input]
 
 move_right={

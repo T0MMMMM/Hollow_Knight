@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://8kl8opjqt05h"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_h51ei"]
+[ext_resource type="Script" path="res://machine_state.gd" id="1_oh1kk"]
+[ext_resource type="Script" path="res://idle.gd" id="3_t584j"]
+[ext_resource type="Script" path="res://attack.gd" id="4_k4yoe"]
+[ext_resource type="Script" path="res://follow.gd" id="5_0t4wc"]
+[ext_resource type="PackedScene" uid="uid://d0defln4qssif" path="res://bullet.tscn" id="5_qwryo"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_i3qqc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_633td"]
+
+[node name="enemy" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.287473, 0)
+script = ExtResource("1_h51ei")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_i3qqc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_633td")
+
+[node name="debug" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.788126, 0)
+modulate = Color(0, 0, 0, 1)
+text = "test"
+font_size = 80
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+debug_shape_custom_color = Color(0.368627, 0.407843, 0.694118, 1)
+
+[node name="machine_state" type="Node3D" parent="."]
+script = ExtResource("1_oh1kk")
+
+[node name="idle" type="Node3D" parent="machine_state"]
+script = ExtResource("3_t584j")
+
+[node name="attack" type="Node3D" parent="machine_state"]
+script = ExtResource("4_k4yoe")
+bullet_node = ExtResource("5_qwryo")
+
+[node name="Timer" type="Timer" parent="machine_state/attack"]
+wait_time = 2.0
+
+[node name="follow" type="Node3D" parent="machine_state"]
+script = ExtResource("5_0t4wc")
+
+[node name="dash" type="Node3D" parent="machine_state"]
+
+[connection signal="timeout" from="machine_state/attack/Timer" to="machine_state/attack" method="_on_timer_timeout"]

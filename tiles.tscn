@@ -1,0 +1,490 @@
+[gd_scene load_steps=119 format=3 uid="uid://b3cvo1x0r5gmg"]
+
+[ext_resource type="PackedScene" uid="uid://cpyoknjneg7af" path="res://test.glb" id="1_i0aej"]
+[ext_resource type="PackedScene" uid="uid://c5ld3uy3sj7xf" path="res://TilesAsset/arrow.glb" id="1_qpoq1"]
+[ext_resource type="PackedScene" uid="uid://blni1ttbredst" path="res://TilesAsset/arrows.glb" id="2_gkwbh"]
+[ext_resource type="PackedScene" uid="uid://cdtlu0li0lx31" path="res://TilesAsset/barrel.glb" id="3_ytx6t"]
+[ext_resource type="PackedScene" uid="uid://8gj0l2wysu5u" path="res://TilesAsset/block.glb" id="4_6e0ol"]
+[ext_resource type="PackedScene" uid="uid://b7ghorfy2ptxe" path="res://TilesAsset/blockCliff.glb" id="5_5i4ro"]
+[ext_resource type="PackedScene" uid="uid://dea7pwx35862y" path="res://TilesAsset/blockCliffCorner.glb" id="6_g4oop"]
+[ext_resource type="PackedScene" uid="uid://cupjn3481yoee" path="res://TilesAsset/blockCornerLarge.glb" id="7_uvebm"]
+[ext_resource type="PackedScene" uid="uid://msfd6d7bi7pq" path="res://TilesAsset/blockCornerSmall.glb" id="8_qcphu"]
+[ext_resource type="PackedScene" uid="uid://ruu7ebvcvqsh" path="res://TilesAsset/blockCurve.glb" id="9_qb5pf"]
+[ext_resource type="PackedScene" uid="uid://deendgd01gp3f" path="res://TilesAsset/blockCurveHalf.glb" id="10_x12h6"]
+[ext_resource type="PackedScene" uid="uid://b022qs341gpm2" path="res://TilesAsset/blockCurveLow.glb" id="11_n6yma"]
+[ext_resource type="PackedScene" uid="uid://cne2ovvm0pk4u" path="res://TilesAsset/blockDirt.glb" id="12_xbwqd"]
+[ext_resource type="PackedScene" uid="uid://dplwnd34qwspm" path="res://TilesAsset/blockDirtHalf.glb" id="13_chulr"]
+[ext_resource type="PackedScene" uid="uid://bsmdfloloy7sn" path="res://TilesAsset/blockDirtRamp.glb" id="14_8n5t1"]
+[ext_resource type="PackedScene" uid="uid://dv6sjebkfxlm5" path="res://TilesAsset/blockDirtRampHalf.glb" id="15_gv2ad"]
+[ext_resource type="PackedScene" uid="uid://kgebi8pidlvd" path="res://TilesAsset/blockEnd.glb" id="16_kcs6u"]
+[ext_resource type="PackedScene" uid="uid://bsvuqpu5nf64r" path="res://TilesAsset/blockHalf.glb" id="17_urdbi"]
+[ext_resource type="PackedScene" uid="uid://nn42xplwgd68" path="res://TilesAsset/blockHexagon.glb" id="18_ef5fa"]
+[ext_resource type="PackedScene" uid="uid://ba0x70m36lqo2" path="res://TilesAsset/blockHexagonLow.glb" id="19_86632"]
+[ext_resource type="PackedScene" uid="uid://c4osbmqn4mlva" path="res://TilesAsset/blockLarge.glb" id="20_ppjco"]
+[ext_resource type="PackedScene" uid="uid://ca8r4vuk1i0y2" path="res://TilesAsset/blockLevel.glb" id="21_bfgnt"]
+[ext_resource type="PackedScene" uid="uid://ctguf4e8mbque" path="res://TilesAsset/blockLong.glb" id="22_qcj1p"]
+[ext_resource type="PackedScene" uid="uid://b5hc5docdh0vh" path="res://TilesAsset/blockMoving.glb" id="23_7xqef"]
+[ext_resource type="PackedScene" uid="uid://crk78t8i4kwf0" path="res://TilesAsset/blockMovingBlue.glb" id="24_ai341"]
+[ext_resource type="PackedScene" uid="uid://dq4jy7w8gpwf" path="res://TilesAsset/blockMovingLarge.glb" id="25_yd50s"]
+[ext_resource type="PackedScene" uid="uid://dy8j3dn8f0rdt" path="res://TilesAsset/blockQuarter.glb" id="26_njtx2"]
+[ext_resource type="PackedScene" uid="uid://c0fr6qsh235cb" path="res://TilesAsset/blockRounded.glb" id="27_v1b4w"]
+[ext_resource type="PackedScene" uid="uid://jryemnb232ou" path="res://TilesAsset/blockRoundedLarge.glb" id="28_eytdr"]
+[ext_resource type="PackedScene" uid="uid://1vv3ogyylr5t" path="res://TilesAsset/blockRoundedLong.glb" id="29_duykn"]
+[ext_resource type="PackedScene" uid="uid://cwh0bwuq37dvu" path="res://TilesAsset/blockRoundedLow.glb" id="30_y5fws"]
+[ext_resource type="PackedScene" uid="uid://diboyfvov6oum" path="res://TilesAsset/blockRoundedLowLong.glb" id="31_ubr56"]
+[ext_resource type="PackedScene" uid="uid://4j7yjw3gll7j" path="res://TilesAsset/blockSlope.glb" id="32_vtru2"]
+[ext_resource type="PackedScene" uid="uid://bsxhxvi2nabv0" path="res://TilesAsset/blockSlopeHalf.glb" id="33_g00dl"]
+[ext_resource type="PackedScene" uid="uid://trkloh0345jg" path="res://TilesAsset/blockSnow.glb" id="34_gikdg"]
+[ext_resource type="PackedScene" uid="uid://ddjlvk7bgc6me" path="res://TilesAsset/blockSnowCliff.glb" id="35_vmje1"]
+[ext_resource type="PackedScene" uid="uid://b32hoele8wpkt" path="res://TilesAsset/blockSnowCliffCorner.glb" id="36_753c0"]
+[ext_resource type="PackedScene" uid="uid://cmai0dokyrut3" path="res://TilesAsset/blockSnowCornerLarge.glb" id="37_g5v5a"]
+[ext_resource type="PackedScene" uid="uid://bk1i2d838ln4f" path="res://TilesAsset/blockSnowCornerSmall.glb" id="38_qxdsy"]
+[ext_resource type="PackedScene" uid="uid://bt8qn7ngruar4" path="res://TilesAsset/blockSnowCurve.glb" id="39_b4j7r"]
+[ext_resource type="PackedScene" uid="uid://cvrr8te74ulae" path="res://TilesAsset/blockSnowCurveHalf.glb" id="40_7uf5g"]
+[ext_resource type="PackedScene" uid="uid://qs4sdwluxrsl" path="res://TilesAsset/blockSnowCurveLow.glb" id="41_eq6fx"]
+[ext_resource type="PackedScene" uid="uid://boyxqf3srcv2k" path="res://TilesAsset/blockSnowEnd.glb" id="42_6lcec"]
+[ext_resource type="PackedScene" uid="uid://be1abllc1qn5q" path="res://TilesAsset/blockSnowHalf.glb" id="43_dxnp6"]
+[ext_resource type="PackedScene" uid="uid://eopy5x2egrst" path="res://TilesAsset/blockSnowHexagon.glb" id="44_ihhu6"]
+[ext_resource type="PackedScene" uid="uid://cx23mec2ptdb6" path="res://TilesAsset/blockSnowHexagonLow.glb" id="45_fpx5x"]
+[ext_resource type="PackedScene" uid="uid://bafalumsai4ca" path="res://TilesAsset/blockSnowLarge.glb" id="46_k1gbd"]
+[ext_resource type="PackedScene" uid="uid://bdxe1dme7fugk" path="res://TilesAsset/blockSnowLevel.glb" id="47_isywf"]
+[ext_resource type="PackedScene" uid="uid://xgrdxmbw2bqj" path="res://TilesAsset/blockSnowLong.glb" id="48_y214q"]
+[ext_resource type="PackedScene" uid="uid://byqlnit0vrid1" path="res://TilesAsset/blockSnowQuarter.glb" id="49_43owt"]
+[ext_resource type="PackedScene" uid="uid://b8fddpgjtcs45" path="res://TilesAsset/blockSnowRounded.glb" id="50_4qws5"]
+[ext_resource type="PackedScene" uid="uid://bw0s513ttfukq" path="res://TilesAsset/blockSnowRoundedLarge.glb" id="51_onyyf"]
+[ext_resource type="PackedScene" uid="uid://d4gyjgqbbhkvs" path="res://TilesAsset/blockSnowRoundedLong.glb" id="52_34bpb"]
+[ext_resource type="PackedScene" uid="uid://dfyjwhsk8mfax" path="res://TilesAsset/blockSnowRoundedLow.glb" id="53_iqvfh"]
+[ext_resource type="PackedScene" uid="uid://brt0n4fxj2n2n" path="res://TilesAsset/blockSnowRoundedLowLong.glb" id="54_u3ule"]
+[ext_resource type="PackedScene" uid="uid://dudedyx8cmvfl" path="res://TilesAsset/blockSnowSlope.glb" id="55_esr3s"]
+[ext_resource type="PackedScene" uid="uid://cu43pp5s613cm" path="res://TilesAsset/blockSnowSlopeHalf.glb" id="56_cjjmh"]
+[ext_resource type="PackedScene" uid="uid://cvhui11xdq2gq" path="res://TilesAsset/bomb.glb" id="57_vojgb"]
+[ext_resource type="PackedScene" uid="uid://co84mjgoinyrr" path="res://TilesAsset/bridge.glb" id="58_pnhub"]
+[ext_resource type="PackedScene" uid="uid://b7p8xk3rtas7f" path="res://TilesAsset/bridgeHalf.glb" id="59_qqtbf"]
+[ext_resource type="PackedScene" uid="uid://cmqfoyq15jo5k" path="res://TilesAsset/bridgeRamp.glb" id="60_h3edc"]
+[ext_resource type="PackedScene" uid="uid://dmsphiorkfh6m" path="res://TilesAsset/buttonRound.glb" id="61_7voic"]
+[ext_resource type="PackedScene" uid="uid://bmwrhi1am5r3j" path="res://TilesAsset/buttonSquare.glb" id="62_qbmcn"]
+[ext_resource type="PackedScene" uid="uid://cdkh3sfpxr3rh" path="res://TilesAsset/chest.glb" id="63_lxv0j"]
+[ext_resource type="PackedScene" uid="uid://bx5ma0u2obaox" path="res://TilesAsset/coinBronze.glb" id="64_c62d4"]
+[ext_resource type="PackedScene" uid="uid://c41ykt8ahxpbg" path="res://TilesAsset/coinGold.glb" id="65_iii5n"]
+[ext_resource type="PackedScene" uid="uid://brq3a62mijrvp" path="res://TilesAsset/coinSilver.glb" id="66_sp7kv"]
+[ext_resource type="PackedScene" uid="uid://cfispa1bwilvi" path="res://TilesAsset/crate.glb" id="67_fbonu"]
+[ext_resource type="PackedScene" uid="uid://bf4c53cu2s6hh" path="res://TilesAsset/crateItem.glb" id="68_hik0q"]
+[ext_resource type="PackedScene" uid="uid://cbjn2kv6t4w5o" path="res://TilesAsset/crateItemStrong.glb" id="69_57r8a"]
+[ext_resource type="PackedScene" uid="uid://d3rv75avs5mcr" path="res://TilesAsset/crateStrong.glb" id="70_pji7f"]
+[ext_resource type="PackedScene" uid="uid://bf3l4thpd41bn" path="res://TilesAsset/doorClosed.glb" id="71_w1n1y"]
+[ext_resource type="PackedScene" uid="uid://ceq4tcrdnggbg" path="res://TilesAsset/doorLargeClosed.glb" id="72_u5c3m"]
+[ext_resource type="PackedScene" uid="uid://bmhl8uvcckk4e" path="res://TilesAsset/doorLargeOpen.glb" id="73_y0w6n"]
+[ext_resource type="PackedScene" uid="uid://cto8thsw23qom" path="res://TilesAsset/doorOpen.glb" id="74_ofpkm"]
+[ext_resource type="PackedScene" uid="uid://bvtcrx7qrnmn3" path="res://TilesAsset/fence.glb" id="75_i8eoe"]
+[ext_resource type="PackedScene" uid="uid://danbmqy3iwdso" path="res://TilesAsset/fenceBroken.glb" id="76_u5ogs"]
+[ext_resource type="PackedScene" uid="uid://dgoybksfsal4r" path="res://TilesAsset/fenceCorner.glb" id="77_60vyb"]
+[ext_resource type="PackedScene" uid="uid://bybr572qn20lt" path="res://TilesAsset/fenceCornerCurved.glb" id="78_xxk5l"]
+[ext_resource type="PackedScene" uid="uid://dk7f22an1cwyc" path="res://TilesAsset/fenceLow.glb" id="79_w7crt"]
+[ext_resource type="PackedScene" uid="uid://pe8lvxltjwpu" path="res://TilesAsset/fenceLowBroken.glb" id="80_48qpp"]
+[ext_resource type="PackedScene" uid="uid://bhahwa2smewkb" path="res://TilesAsset/fenceLowCorner.glb" id="81_ers70"]
+[ext_resource type="PackedScene" uid="uid://82qhg2w66obm" path="res://TilesAsset/fenceLowCornerCurved.glb" id="82_rdrjs"]
+[ext_resource type="PackedScene" uid="uid://xno2i6i30xxy" path="res://TilesAsset/flag.glb" id="83_6hgp1"]
+[ext_resource type="PackedScene" uid="uid://bpxg5qg6wrpcy" path="res://TilesAsset/flowers.glb" id="84_e8s8o"]
+[ext_resource type="PackedScene" uid="uid://louqvaxr8n6f" path="res://TilesAsset/flowersLow.glb" id="85_pekll"]
+[ext_resource type="PackedScene" uid="uid://boslj7tiifaqc" path="res://TilesAsset/heart.glb" id="86_4qvew"]
+[ext_resource type="PackedScene" uid="uid://b5kftiuigd22x" path="res://TilesAsset/hedge.glb" id="87_tn106"]
+[ext_resource type="PackedScene" uid="uid://byk2og6yi37rb" path="res://TilesAsset/hedgeCorner.glb" id="88_hpftf"]
+[ext_resource type="PackedScene" uid="uid://c64s56xopjjrg" path="res://TilesAsset/jewel.glb" id="89_0swqc"]
+[ext_resource type="PackedScene" uid="uid://cpv7uhlh7ff2u" path="res://TilesAsset/key.glb" id="90_unggc"]
+[ext_resource type="PackedScene" uid="uid://cr33sv7ufg0fh" path="res://TilesAsset/ladder.glb" id="91_mvgq5"]
+[ext_resource type="PackedScene" uid="uid://d025a0bbj44m1" path="res://TilesAsset/ladderBroken.glb" id="92_xb611"]
+[ext_resource type="PackedScene" uid="uid://cv3ndmed36yi8" path="res://TilesAsset/ladderLong.glb" id="93_flluq"]
+[ext_resource type="PackedScene" uid="uid://de1qmmsxn56g" path="res://TilesAsset/lever.glb" id="94_id313"]
+[ext_resource type="PackedScene" uid="uid://cwoypqvw3rdwv" path="res://TilesAsset/lock.glb" id="95_82l16"]
+[ext_resource type="PackedScene" uid="uid://4bf8baq3xhcq" path="res://TilesAsset/mushrooms.glb" id="96_llcre"]
+[ext_resource type="PackedScene" uid="uid://ch8ojhljlfej5" path="res://TilesAsset/plant.glb" id="97_lmnmx"]
+[ext_resource type="PackedScene" uid="uid://de2i1ewbok00q" path="res://TilesAsset/platform.glb" id="98_0p2ko"]
+[ext_resource type="PackedScene" uid="uid://dqgasye1n0151" path="res://TilesAsset/poles.glb" id="99_rsydi"]
+[ext_resource type="PackedScene" uid="uid://b5313l1lpljl2" path="res://TilesAsset/rocks.glb" id="100_y75a0"]
+[ext_resource type="PackedScene" uid="uid://qpvpdbk5mvj6" path="res://TilesAsset/saw.glb" id="101_hilj4"]
+[ext_resource type="PackedScene" uid="uid://5wdnfk1wq5ig" path="res://TilesAsset/sign.glb" id="102_uxrr1"]
+[ext_resource type="PackedScene" uid="uid://c36siuxf5a0k" path="res://TilesAsset/spikeBlock.glb" id="103_rc2qf"]
+[ext_resource type="PackedScene" uid="uid://blfh4wr0er3o6" path="res://TilesAsset/spikeBlockWide.glb" id="104_b6dk4"]
+[ext_resource type="PackedScene" uid="uid://d03yex7pn14av" path="res://TilesAsset/spikes.glb" id="105_1qcrr"]
+[ext_resource type="PackedScene" uid="uid://jslpxoh7iji3" path="res://TilesAsset/spikesHidden.glb" id="106_0udtt"]
+[ext_resource type="PackedScene" uid="uid://cop0gn3jifg8" path="res://TilesAsset/spikesLarge.glb" id="107_omx87"]
+[ext_resource type="PackedScene" uid="uid://cefsor3bkmoek" path="res://TilesAsset/stones.glb" id="108_kp38h"]
+[ext_resource type="PackedScene" uid="uid://dd0st5h7nj3yb" path="res://TilesAsset/tree.glb" id="109_7qgfg"]
+[ext_resource type="PackedScene" uid="uid://b48bgyffeilbh" path="res://TilesAsset/treePine.glb" id="110_4hiqp"]
+[ext_resource type="PackedScene" uid="uid://4dp225dr65sq" path="res://TilesAsset/treePineSmall.glb" id="111_wobj5"]
+[ext_resource type="PackedScene" uid="uid://dkjr0qf03nn0n" path="res://TilesAsset/treePineSmallSnow.glb" id="112_gni1b"]
+[ext_resource type="PackedScene" uid="uid://bubkdrpel6lj8" path="res://TilesAsset/treePineSnow.glb" id="113_da26t"]
+[ext_resource type="PackedScene" uid="uid://c5dmh2wjuk22j" path="res://TilesAsset/treeSnow.glb" id="114_khlv8"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bbdyq"]
+data = PackedVector3Array(0.1189, 1.4738, -0.7527, -3.127, 2.3074, 2.8029, -1, 1, -1, 0.1189, 1.4738, -0.7527, 7.9085, -2.4757, -4.5511, -3.127, 2.3074, 2.8029, 1.6911, -1.2279, 1.2617, -3.127, 2.3074, 2.8029, 7.9085, -2.4757, -4.5511, 1.6911, -1.2279, 1.2617, -1, -1, 1, -3.127, 2.3074, 2.8029, -1, -1, 1, -1, 1, -1, -3.127, 2.3074, 2.8029, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, -1, -1, 1, -0.1636, 0.3748, 0.711, -0.1636, 0.3748, 0.711, -1, -1, 1, 1.6911, -1.2279, 1.2617, -0.1636, 0.3748, 0.711, 7.9085, -2.4757, -4.5511, 0.1189, 1.4738, -0.7527, -0.1636, 0.3748, 0.711, 1.6911, -1.2279, 1.2617, 7.9085, -2.4757, -4.5511, -1, -1, -1, 0.1189, 1.4738, -0.7527, -1, 1, -1, -1, -1, -1, -0.1636, 0.3748, 0.711, 0.1189, 1.4738, -0.7527)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5g2tr"]
+data = PackedVector3Array(-0.2278, 0.44, -0.0482, -0.0605, 0.2912, -0.0648, -0.0605, 0.3566, -0.0648, -0.0605, 0.3566, -0.0648, -0.0605, 0.5234, -0.0648, -0.2278, 0.44, -0.0482, -0.0605, 0.5234, -0.0648, -0.0605, 0.5888, -0.0648, -0.2278, 0.44, -0.0482, -0.2278, 0.44, -0.0482, -0.2278, 0.44, -0.0316, -0.0605, 0.2912, -0.015, -0.0605, 0.2912, -0.015, -0.0605, 0.2912, -0.0648, -0.2278, 0.44, -0.0482, 0.2278, 0.5469, -0.015, 0.2278, 0.333, -0.015, -0.0605, 0.3566, -0.015, -0.0605, 0.3566, -0.015, -0.0605, 0.5234, -0.015, 0.2278, 0.5469, -0.015, -0.0605, 0.5888, -0.015, -0.2278, 0.44, -0.0316, -0.2278, 0.44, -0.0482, -0.2278, 0.44, -0.0482, -0.0605, 0.5888, -0.0648, -0.0605, 0.5888, -0.015, 0.2278, 0.333, -0.0648, 0.2278, 0.333, -0.015, 0.2278, 0.5469, -0.015, 0.2278, 0.5469, -0.015, 0.2278, 0.5469, -0.0648, 0.2278, 0.333, -0.0648, -0.0605, 0.3566, -0.0648, 0.2278, 0.333, -0.0648, 0.2278, 0.5469, -0.0648, 0.2278, 0.5469, -0.0648, -0.0605, 0.5234, -0.0648, -0.0605, 0.3566, -0.0648, 0.2278, 0.5469, -0.015, -0.0605, 0.5234, -0.015, -0.0605, 0.5234, -0.0648, -0.0605, 0.5234, -0.0648, 0.2278, 0.5469, -0.0648, 0.2278, 0.5469, -0.015, -0.0605, 0.2912, -0.0648, -0.0605, 0.2912, -0.015, -0.0605, 0.3566, -0.015, -0.0605, 0.3566, -0.015, -0.0605, 0.3566, -0.0648, -0.0605, 0.2912, -0.0648, -0.0605, 0.3566, -0.015, -0.0605, 0.2912, -0.015, -0.2278, 0.44, -0.0316, -0.2278, 0.44, -0.0316, -0.0605, 0.5234, -0.015, -0.0605, 0.3566, -0.015, -0.2278, 0.44, -0.0316, -0.0605, 0.5888, -0.015, -0.0605, 0.5234, -0.015, -0.0605, 0.3566, -0.0648, -0.0605, 0.3566, -0.015, 0.2278, 0.333, -0.015, 0.2278, 0.333, -0.015, 0.2278, 0.333, -0.0648, -0.0605, 0.3566, -0.0648, -0.0605, 0.5234, -0.0648, -0.0605, 0.5234, -0.015, -0.0605, 0.5888, -0.015, -0.0605, 0.5888, -0.015, -0.0605, 0.5888, -0.0648, -0.0605, 0.5234, -0.0648, -0.0256, 0.6, -0.0256, -0.035, 0, -0.035, 0.035, 0, -0.035, 0.035, 0, -0.035, 0.0256, 0.6, -0.0256, -0.0256, 0.6, -0.0256, 0.035, 0, -0.035, 0.035, 0, 0.035, 0.0256, 0.6, 0.0256, 0.0256, 0.6, 0.0256, 0.0256, 0.6, -0.0256, 0.035, 0, -0.035, -0.035, 0, -0.035, -0.035, 0, 0.035, 0.035, 0, 0.035, 0.035, 0, 0.035, 0.035, 0, -0.035, -0.035, 0, -0.035, -0.0256, 0.6, 0.0256, -0.035, 0, 0.035, -0.035, 0, -0.035, -0.035, 0, -0.035, -0.0256, 0.6, -0.0256, -0.0256, 0.6, 0.0256, 0.0256, 0.6, 0.0256, -0.0256, 0.6, 0.0256, -0.0256, 0.6, -0.0256, -0.0256, 0.6, -0.0256, 0.0256, 0.6, -0.0256, 0.0256, 0.6, 0.0256, 0.0256, 0.6, 0.0256, 0.035, 0, 0.035, -0.035, 0, 0.035, -0.035, 0, 0.035, -0.0256, 0.6, 0.0256, 0.0256, 0.6, 0.0256)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fn5tv"]
+data = PackedVector3Array(0.5, 0.8415, -0.5915, 0.5915, 0.8415, -0.5, 0.5, 1, -0.5, 0.5915, 0.8415, -0.5, 0.5, 0.8415, -0.5915, 0.5, 1, -0.5, -0.5, 1, 0.5, -0.5, 0.8415, 0.5915, -0.5915, 0.8415, 0.5, -0.5, 0.8415, 0.5915, -0.5, 1, 0.5, -0.5915, 0.8415, 0.5, -0.5, 1, -0.5, -0.5915, 0.8415, -0.5, -0.5, 0.8415, -0.5915, -0.5915, 0.8415, -0.5, -0.5, 1, -0.5, -0.5, 0.8415, -0.5915, 0.5, 1, 0.5, 0.5915, 0.8415, 0.5, 0.5, 0.8415, 0.5915, 0.5915, 0.8415, 0.5, 0.5, 1, 0.5, 0.5, 0.8415, 0.5915, 0.633, 0.7696, 0.4167, 0.5915, 0.8415, 0.5, 0.5, 1, 0.5, 0.5, 1, 0.5, 0.5915, 0.8415, 0.3333, 0.633, 0.7696, 0.4167, 0.5, 1, 0.5, 0.5, 1, -0.5, 0.5915, 0.8415, 0.3333, 0.5, 1, -0.5, 0.5915, 0.8415, 0.1667, 0.5915, 0.8415, 0.3333, 0.5915, 0.8415, 0.1667, 0.633, 0.7696, 0.25, 0.5915, 0.8415, 0.3333, 0.5, 1, -0.5, 0.5915, 0.8415, 0, 0.5915, 0.8415, 0.1667, 0.5915, 0.8415, 0, 0.633, 0.7696, 0.0833, 0.5915, 0.8415, 0.1667, 0.5, 1, -0.5, 0.5915, 0.8415, -0.1667, 0.5915, 0.8415, 0, 0.5915, 0.8415, -0.1667, 0.633, 0.7696, -0.0833, 0.5915, 0.8415, 0, 0.5, 1, -0.5, 0.633, 0.7696, -0.25, 0.5915, 0.8415, -0.1667, 0.5, 1, -0.5, 0.5915, 0.8415, -0.3333, 0.633, 0.7696, -0.25, 0.5, 1, -0.5, 0.633, 0.7696, -0.4167, 0.5915, 0.8415, -0.3333, 0.5, 1, -0.5, 0.5915, 0.8415, -0.5, 0.633, 0.7696, -0.4167, 0.5915, 0.8415, 0.5, 0.633, 0.7696, 0.4167, 0.5, 1, 0.5, 0.5915, 0.8415, 0.3333, 0.5, 1, 0.5, 0.633, 0.7696, 0.4167, 0.5, 1, -0.5, 0.5, 1, 0.5, 0.5915, 0.8415, 0.3333, 0.5915, 0.8415, 0.1667, 0.5, 1, -0.5, 0.5915, 0.8415, 0.3333, 0.633, 0.7696, 0.25, 0.5915, 0.8415, 0.1667, 0.5915, 0.8415, 0.3333, 0.5915, 0.8415, 0, 0.5, 1, -0.5, 0.5915, 0.8415, 0.1667, 0.633, 0.7696, 0.0833, 0.5915, 0.8415, 0, 0.5915, 0.8415, 0.1667, 0.5915, 0.8415, -0.1667, 0.5, 1, -0.5, 0.5915, 0.8415, 0, 0.633, 0.7696, -0.0833, 0.5915, 0.8415, -0.1667, 0.5915, 0.8415, 0, 0.633, 0.7696, -0.25, 0.5, 1, -0.5, 0.5915, 0.8415, -0.1667, 0.5915, 0.8415, -0.3333, 0.5, 1, -0.5, 0.633, 0.7696, -0.25, 0.633, 0.7696, -0.4167, 0.5, 1, -0.5, 0.5915, 0.8415, -0.3333, 0.5915, 0.8415, -0.5, 0.5, 1, -0.5, 0.633, 0.7696, -0.4167, 0.5, 0.8415, 0.5915, 0.4167, 0.7696, 0.633, 0.3333, 0.8415, 0.5915, 0.3333, 0.8415, 0.5915, 0.5, 1, 0.5, 0.5, 0.8415, 0.5915, 0.3333, 0.8415, 0.5915, 0.1667, 0.8415, 0.5915, 0.5, 1, 0.5, 0.1667, 0.8415, 0.5915, 0.3333, 0.8415, 0.5915, 0.25, 0.7696, 0.633, 0.1667, 0.8415, 0.5915, 0, 0.8415, 0.5915, 0.5, 1, 0.5, 0, 0.8415, 0.5915, 0.1667, 0.8415, 0.5915, 0.0833, 0.7696, 0.633, 0, 0.8415, 0.5915, -0.1667, 0.8415, 0.5915, 0.5, 1, 0.5, -0.1667, 0.8415, 0.5915, 0, 0.8415, 0.5915, -0.0833, 0.7696, 0.633, -0.1667, 0.8415, 0.5915, -0.3333, 0.8415, 0.5915, 0.5, 1, 0.5, -0.3333, 0.8415, 0.5915, -0.1667, 0.8415, 0.5915, -0.25, 0.7696, 0.633, -0.3333, 0.8415, 0.5915, -0.5, 0.8415, 0.5915, 0.5, 1, 0.5, -0.5, 0.8415, 0.5915, -0.5, 1, 0.5, 0.5, 1, 0.5, -0.5, 0.8415, 0.5915, -0.3333, 0.8415, 0.5915, -0.4167, 0.7696, 0.633, 0.4167, 0.7696, 0.633, 0.5, 0.8415, 0.5915, 0.3333, 0.8415, 0.5915, 0.5, 1, 0.5, 0.3333, 0.8415, 0.5915, 0.5, 0.8415, 0.5915, 0.1667, 0.8415, 0.5915, 0.3333, 0.8415, 0.5915, 0.5, 1, 0.5, 0.3333, 0.8415, 0.5915, 0.1667, 0.8415, 0.5915, 0.25, 0.7696, 0.633, 0, 0.8415, 0.5915, 0.1667, 0.8415, 0.5915, 0.5, 1, 0.5, 0.1667, 0.8415, 0.5915, 0, 0.8415, 0.5915, 0.0833, 0.7696, 0.633, -0.1667, 0.8415, 0.5915, 0, 0.8415, 0.5915, 0.5, 1, 0.5, 0, 0.8415, 0.5915, -0.1667, 0.8415, 0.5915, -0.0833, 0.7696, 0.633, -0.3333, 0.8415, 0.5915, -0.1667, 0.8415, 0.5915, 0.5, 1, 0.5, -0.1667, 0.8415, 0.5915, -0.3333, 0.8415, 0.5915, -0.25, 0.7696, 0.633, -0.5, 0.8415, 0.5915, -0.3333, 0.8415, 0.5915, 0.5, 1, 0.5, -0.3333, 0.8415, 0.5915, -0.5, 0.8415, 0.5915, -0.4167, 0.7696, 0.633, -0.5, 1, 0.5, -0.5, 0.8415, 0.5915, 0.5, 1, 0.5, -0.5, 1, 0.5, -0.5, 1, -0.5, 0.5, 1, -0.5, 0.5, 1, -0.5, 0.5, 1, 0.5, -0.5, 1, 0.5, -0.5, 0.8415, -0.5915, -0.4167, 0.7696, -0.633, -0.3333, 0.8415, -0.5915, -0.3333, 0.8415, -0.5915, -0.5, 1, -0.5, -0.5, 0.8415, -0.5915, -0.3333, 0.8415, -0.5915, -0.1667, 0.8415, -0.5915, -0.5, 1, -0.5, -0.1667, 0.8415, -0.5915, -0.3333, 0.8415, -0.5915, -0.25, 0.7696, -0.633, -0.1667, 0.8415, -0.5915, 0, 0.8415, -0.5915, -0.5, 1, -0.5, 0, 0.8415, -0.5915, -0.1667, 0.8415, -0.5915, -0.0833, 0.7696, -0.633, 0, 0.8415, -0.5915, 0.1667, 0.8415, -0.5915, -0.5, 1, -0.5, 0.1667, 0.8415, -0.5915, 0, 0.8415, -0.5915, 0.0833, 0.7696, -0.633, 0.1667, 0.8415, -0.5915, 0.3333, 0.8415, -0.5915, -0.5, 1, -0.5, 0.3333, 0.8415, -0.5915, 0.1667, 0.8415, -0.5915, 0.25, 0.7696, -0.633, 0.3333, 0.8415, -0.5915, 0.5, 0.8415, -0.5915, -0.5, 1, -0.5, 0.5, 0.8415, -0.5915, 0.5, 1, -0.5, -0.5, 1, -0.5, 0.5, 0.8415, -0.5915, 0.3333, 0.8415, -0.5915, 0.4167, 0.7696, -0.633, -0.4167, 0.7696, -0.633, -0.5, 0.8415, -0.5915, -0.3333, 0.8415, -0.5915, -0.5, 1, -0.5, -0.3333, 0.8415, -0.5915, -0.5, 0.8415, -0.5915, -0.1667, 0.8415, -0.5915, -0.3333, 0.8415, -0.5915, -0.5, 1, -0.5, -0.3333, 0.8415, -0.5915, -0.1667, 0.8415, -0.5915, -0.25, 0.7696, -0.633, 0, 0.8415, -0.5915, -0.1667, 0.8415, -0.5915, -0.5, 1, -0.5, -0.1667, 0.8415, -0.5915, 0, 0.8415, -0.5915, -0.0833, 0.7696, -0.633, 0.1667, 0.8415, -0.5915, 0, 0.8415, -0.5915, -0.5, 1, -0.5, 0, 0.8415, -0.5915, 0.1667, 0.8415, -0.5915, 0.0833, 0.7696, -0.633, 0.3333, 0.8415, -0.5915, 0.1667, 0.8415, -0.5915, -0.5, 1, -0.5, 0.1667, 0.8415, -0.5915, 0.3333, 0.8415, -0.5915, 0.25, 0.7696, -0.633, 0.5, 0.8415, -0.5915, 0.3333, 0.8415, -0.5915, -0.5, 1, -0.5, 0.3333, 0.8415, -0.5915, 0.5, 0.8415, -0.5915, 0.4167, 0.7696, -0.633, 0.5, 1, -0.5, 0.5, 0.8415, -0.5915, -0.5, 1, -0.5, -0.5, 1, 0.5, -0.5915, 0.8415, 0.5, -0.633, 0.7696, 0.4167, -0.633, 0.7696, 0.4167, -0.5915, 0.8415, 0.3333, -0.5, 1, 0.5, -0.5915, 0.8415, 0.3333, -0.5, 1, -0.5, -0.5, 1, 0.5, -0.5915, 0.8415, 0.3333, -0.5915, 0.8415, 0.1667, -0.5, 1, -0.5, -0.5915, 0.8415, 0.3333, -0.633, 0.7696, 0.25, -0.5915, 0.8415, 0.1667, -0.5915, 0.8415, 0.1667, -0.5915, 0.8415, 0, -0.5, 1, -0.5, -0.5915, 0.8415, 0.1667, -0.633, 0.7696, 0.0833, -0.5915, 0.8415, 0, -0.5915, 0.8415, 0, -0.5915, 0.8415, -0.1667, -0.5, 1, -0.5, -0.5915, 0.8415, 0, -0.633, 0.7696, -0.0833, -0.5915, 0.8415, -0.1667, -0.5915, 0.8415, -0.1667, -0.633, 0.7696, -0.25, -0.5, 1, -0.5, -0.633, 0.7696, -0.25, -0.5915, 0.8415, -0.3333, -0.5, 1, -0.5, -0.5915, 0.8415, -0.3333, -0.633, 0.7696, -0.4167, -0.5, 1, -0.5, -0.633, 0.7696, -0.4167, -0.5915, 0.8415, -0.5, -0.5, 1, -0.5, -0.5915, 0.8415, 0.5, -0.5, 1, 0.5, -0.633, 0.7696, 0.4167, -0.5915, 0.8415, 0.3333, -0.633, 0.7696, 0.4167, -0.5, 1, 0.5, -0.5, 1, -0.5, -0.5915, 0.8415, 0.3333, -0.5, 1, 0.5, -0.5915, 0.8415, 0.1667, -0.5915, 0.8415, 0.3333, -0.5, 1, -0.5, -0.633, 0.7696, 0.25, -0.5915, 0.8415, 0.3333, -0.5915, 0.8415, 0.1667, -0.5915, 0.8415, 0, -0.5915, 0.8415, 0.1667, -0.5, 1, -0.5, -0.633, 0.7696, 0.0833, -0.5915, 0.8415, 0.1667, -0.5915, 0.8415, 0, -0.5915, 0.8415, -0.1667, -0.5915, 0.8415, 0, -0.5, 1, -0.5, -0.633, 0.7696, -0.0833, -0.5915, 0.8415, 0, -0.5915, 0.8415, -0.1667, -0.633, 0.7696, -0.25, -0.5915, 0.8415, -0.1667, -0.5, 1, -0.5, -0.5915, 0.8415, -0.3333, -0.633, 0.7696, -0.25, -0.5, 1, -0.5, -0.633, 0.7696, -0.4167, -0.5915, 0.8415, -0.3333, -0.5, 1, -0.5, -0.5915, 0.8415, -0.5, -0.633, 0.7696, -0.4167, -0.5, 1, -0.5, -0.5, 1, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 1, -0.5, -0.5, 1, -0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 1, 0.5, 0.5, 1, 0.5, 0.5, 1, -0.5, 0.5, 0, -0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 1, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 1, 0.5, 0.5, 1, 0.5, -0.5, 1, -0.5, -0.5, 1, 0.5, -0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 1, -0.5)
+
+[node name="Tiles" type="Node3D"]
+
+[node name="test" parent="." instance=ExtResource("1_i0aej")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="test/Cube" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test/Cube/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_bbdyq")
+
+[node name="arrow" parent="." instance=ExtResource("1_qpoq1")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="arrow/arrow2" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="arrow/arrow2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_5g2tr")
+
+[node name="arrows" parent="." instance=ExtResource("2_gkwbh")]
+visible = false
+
+[node name="barrel" parent="." instance=ExtResource("3_ytx6t")]
+visible = false
+
+[node name="block" parent="." instance=ExtResource("4_6e0ol")]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="block/block2" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block/block2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_fn5tv")
+
+[node name="blockCliff" parent="." instance=ExtResource("5_5i4ro")]
+visible = false
+
+[node name="blockCliffCorner" parent="." instance=ExtResource("6_g4oop")]
+visible = false
+
+[node name="blockCornerLarge" parent="." instance=ExtResource("7_uvebm")]
+visible = false
+
+[node name="blockCornerSmall" parent="." instance=ExtResource("8_qcphu")]
+visible = false
+
+[node name="blockCurve" parent="." instance=ExtResource("9_qb5pf")]
+visible = false
+
+[node name="blockCurveHalf" parent="." instance=ExtResource("10_x12h6")]
+visible = false
+
+[node name="blockCurveLow" parent="." instance=ExtResource("11_n6yma")]
+visible = false
+
+[node name="blockDirt" parent="." instance=ExtResource("12_xbwqd")]
+visible = false
+
+[node name="blockDirtHalf" parent="." instance=ExtResource("13_chulr")]
+visible = false
+
+[node name="blockDirtRamp" parent="." instance=ExtResource("14_8n5t1")]
+visible = false
+
+[node name="blockDirtRampHalf" parent="." instance=ExtResource("15_gv2ad")]
+visible = false
+
+[node name="blockEnd" parent="." instance=ExtResource("16_kcs6u")]
+visible = false
+
+[node name="blockHalf" parent="." instance=ExtResource("17_urdbi")]
+visible = false
+
+[node name="blockHexagon" parent="." instance=ExtResource("18_ef5fa")]
+visible = false
+
+[node name="blockHexagonLow" parent="." instance=ExtResource("19_86632")]
+visible = false
+
+[node name="blockLarge" parent="." instance=ExtResource("20_ppjco")]
+visible = false
+
+[node name="blockLevel" parent="." instance=ExtResource("21_bfgnt")]
+visible = false
+
+[node name="blockLong" parent="." instance=ExtResource("22_qcj1p")]
+visible = false
+
+[node name="blockMoving" parent="." instance=ExtResource("23_7xqef")]
+visible = false
+
+[node name="blockMovingBlue" parent="." instance=ExtResource("24_ai341")]
+visible = false
+
+[node name="blockMovingLarge" parent="." instance=ExtResource("25_yd50s")]
+visible = false
+
+[node name="blockQuarter" parent="." instance=ExtResource("26_njtx2")]
+visible = false
+
+[node name="blockRounded" parent="." instance=ExtResource("27_v1b4w")]
+visible = false
+
+[node name="blockRoundedLarge" parent="." instance=ExtResource("28_eytdr")]
+visible = false
+
+[node name="blockRoundedLong" parent="." instance=ExtResource("29_duykn")]
+visible = false
+
+[node name="blockRoundedLow" parent="." instance=ExtResource("30_y5fws")]
+visible = false
+
+[node name="blockRoundedLowLong" parent="." instance=ExtResource("31_ubr56")]
+visible = false
+
+[node name="blockSlope" parent="." instance=ExtResource("32_vtru2")]
+visible = false
+
+[node name="blockSlopeHalf" parent="." instance=ExtResource("33_g00dl")]
+visible = false
+
+[node name="blockSnow" parent="." instance=ExtResource("34_gikdg")]
+visible = false
+
+[node name="blockSnowCliff" parent="." instance=ExtResource("35_vmje1")]
+visible = false
+
+[node name="blockSnowCliffCorner" parent="." instance=ExtResource("36_753c0")]
+visible = false
+
+[node name="blockSnowCornerLarge" parent="." instance=ExtResource("37_g5v5a")]
+visible = false
+
+[node name="blockSnowCornerSmall" parent="." instance=ExtResource("38_qxdsy")]
+visible = false
+
+[node name="blockSnowCurve" parent="." instance=ExtResource("39_b4j7r")]
+visible = false
+
+[node name="blockSnowCurveHalf" parent="." instance=ExtResource("40_7uf5g")]
+visible = false
+
+[node name="blockSnowCurveLow" parent="." instance=ExtResource("41_eq6fx")]
+visible = false
+
+[node name="blockSnowEnd" parent="." instance=ExtResource("42_6lcec")]
+visible = false
+
+[node name="blockSnowHalf" parent="." instance=ExtResource("43_dxnp6")]
+visible = false
+
+[node name="blockSnowHexagon" parent="." instance=ExtResource("44_ihhu6")]
+visible = false
+
+[node name="blockSnowHexagonLow" parent="." instance=ExtResource("45_fpx5x")]
+visible = false
+
+[node name="blockSnowLarge" parent="." instance=ExtResource("46_k1gbd")]
+visible = false
+
+[node name="blockSnowLevel" parent="." instance=ExtResource("47_isywf")]
+visible = false
+
+[node name="blockSnowLong" parent="." instance=ExtResource("48_y214q")]
+visible = false
+
+[node name="blockSnowQuarter" parent="." instance=ExtResource("49_43owt")]
+visible = false
+
+[node name="blockSnowRounded" parent="." instance=ExtResource("50_4qws5")]
+visible = false
+
+[node name="blockSnowRoundedLarge" parent="." instance=ExtResource("51_onyyf")]
+visible = false
+
+[node name="blockSnowRoundedLong" parent="." instance=ExtResource("52_34bpb")]
+visible = false
+
+[node name="blockSnowRoundedLow" parent="." instance=ExtResource("53_iqvfh")]
+visible = false
+
+[node name="blockSnowRoundedLowLong" parent="." instance=ExtResource("54_u3ule")]
+visible = false
+
+[node name="blockSnowSlope" parent="." instance=ExtResource("55_esr3s")]
+visible = false
+
+[node name="blockSnowSlopeHalf" parent="." instance=ExtResource("56_cjjmh")]
+visible = false
+
+[node name="bomb" parent="." instance=ExtResource("57_vojgb")]
+visible = false
+
+[node name="bridge" parent="." instance=ExtResource("58_pnhub")]
+visible = false
+
+[node name="bridgeHalf" parent="." instance=ExtResource("59_qqtbf")]
+visible = false
+
+[node name="bridgeRamp" parent="." instance=ExtResource("60_h3edc")]
+visible = false
+
+[node name="buttonRound" parent="." instance=ExtResource("61_7voic")]
+visible = false
+
+[node name="buttonSquare" parent="." instance=ExtResource("62_qbmcn")]
+visible = false
+
+[node name="chest" parent="." instance=ExtResource("63_lxv0j")]
+visible = false
+
+[node name="coinBronze" parent="." instance=ExtResource("64_c62d4")]
+visible = false
+
+[node name="coinGold" parent="." instance=ExtResource("65_iii5n")]
+visible = false
+
+[node name="coinSilver" parent="." instance=ExtResource("66_sp7kv")]
+visible = false
+
+[node name="crate" parent="." instance=ExtResource("67_fbonu")]
+visible = false
+
+[node name="crateItem" parent="." instance=ExtResource("68_hik0q")]
+visible = false
+
+[node name="crateItemStrong" parent="." instance=ExtResource("69_57r8a")]
+visible = false
+
+[node name="crateStrong" parent="." instance=ExtResource("70_pji7f")]
+visible = false
+
+[node name="doorClosed" parent="." instance=ExtResource("71_w1n1y")]
+visible = false
+
+[node name="doorLargeClosed" parent="." instance=ExtResource("72_u5c3m")]
+visible = false
+
+[node name="doorLargeOpen" parent="." instance=ExtResource("73_y0w6n")]
+visible = false
+
+[node name="doorOpen" parent="." instance=ExtResource("74_ofpkm")]
+visible = false
+
+[node name="fence" parent="." instance=ExtResource("75_i8eoe")]
+visible = false
+
+[node name="fenceBroken" parent="." instance=ExtResource("76_u5ogs")]
+visible = false
+
+[node name="fenceCorner" parent="." instance=ExtResource("77_60vyb")]
+visible = false
+
+[node name="fenceCornerCurved" parent="." instance=ExtResource("78_xxk5l")]
+visible = false
+
+[node name="fenceLow" parent="." instance=ExtResource("79_w7crt")]
+visible = false
+
+[node name="fenceLowBroken" parent="." instance=ExtResource("80_48qpp")]
+visible = false
+
+[node name="fenceLowCorner" parent="." instance=ExtResource("81_ers70")]
+visible = false
+
+[node name="fenceLowCornerCurved" parent="." instance=ExtResource("82_rdrjs")]
+visible = false
+
+[node name="flag" parent="." instance=ExtResource("83_6hgp1")]
+visible = false
+
+[node name="flowers" parent="." instance=ExtResource("84_e8s8o")]
+visible = false
+
+[node name="flowersLow" parent="." instance=ExtResource("85_pekll")]
+visible = false
+
+[node name="heart" parent="." instance=ExtResource("86_4qvew")]
+visible = false
+
+[node name="hedge" parent="." instance=ExtResource("87_tn106")]
+visible = false
+
+[node name="hedgeCorner" parent="." instance=ExtResource("88_hpftf")]
+visible = false
+
+[node name="jewel" parent="." instance=ExtResource("89_0swqc")]
+visible = false
+
+[node name="key" parent="." instance=ExtResource("90_unggc")]
+visible = false
+
+[node name="ladder" parent="." instance=ExtResource("91_mvgq5")]
+visible = false
+
+[node name="ladderBroken" parent="." instance=ExtResource("92_xb611")]
+visible = false
+
+[node name="ladderLong" parent="." instance=ExtResource("93_flluq")]
+visible = false
+
+[node name="lever" parent="." instance=ExtResource("94_id313")]
+visible = false
+
+[node name="lock" parent="." instance=ExtResource("95_82l16")]
+visible = false
+
+[node name="mushrooms" parent="." instance=ExtResource("96_llcre")]
+visible = false
+
+[node name="plant" parent="." instance=ExtResource("97_lmnmx")]
+visible = false
+
+[node name="platform" parent="." instance=ExtResource("98_0p2ko")]
+visible = false
+
+[node name="poles" parent="." instance=ExtResource("99_rsydi")]
+visible = false
+
+[node name="rocks" parent="." instance=ExtResource("100_y75a0")]
+visible = false
+
+[node name="saw" parent="." instance=ExtResource("101_hilj4")]
+visible = false
+
+[node name="sign" parent="." instance=ExtResource("102_uxrr1")]
+visible = false
+
+[node name="spikeBlock" parent="." instance=ExtResource("103_rc2qf")]
+visible = false
+
+[node name="spikeBlockWide" parent="." instance=ExtResource("104_b6dk4")]
+visible = false
+
+[node name="spikes" parent="." instance=ExtResource("105_1qcrr")]
+visible = false
+
+[node name="spikesHidden" parent="." instance=ExtResource("106_0udtt")]
+visible = false
+
+[node name="spikesLarge" parent="." instance=ExtResource("107_omx87")]
+visible = false
+
+[node name="stones" parent="." instance=ExtResource("108_kp38h")]
+visible = false
+
+[node name="tree" parent="." instance=ExtResource("109_7qgfg")]
+visible = false
+
+[node name="treePine" parent="." instance=ExtResource("110_4hiqp")]
+visible = false
+
+[node name="treePineSmall" parent="." instance=ExtResource("111_wobj5")]
+visible = false
+
+[node name="treePineSmallSnow" parent="." instance=ExtResource("112_gni1b")]
+visible = false
+
+[node name="treePineSnow" parent="." instance=ExtResource("113_da26t")]
+visible = false
+
+[node name="treeSnow" parent="." instance=ExtResource("114_khlv8")]
+visible = false
+
+[editable path="test"]
+[editable path="arrow"]
+[editable path="block"]

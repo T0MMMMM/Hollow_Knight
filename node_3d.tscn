@@ -1,7 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://wu1bgooeqvfb"]
+[gd_scene load_steps=11 format=3 uid="uid://wu1bgooeqvfb"]
 
 [ext_resource type="PackedScene" uid="uid://cus0dgndulm1y" path="res://player.tscn" id="1_o1dam"]
 [ext_resource type="PackedScene" uid="uid://3a5vge57q5rf" path="res://cube.tscn" id="2_k7ti0"]
+[ext_resource type="Script" path="res://Camera3D.gd" id="3_4tefn"]
+[ext_resource type="PackedScene" uid="uid://8kl8opjqt05h" path="res://enemy.tscn" id="3_gdiei"]
+[ext_resource type="MeshLibrary" uid="uid://bu4j0tejjik8s" path="res://tiles_mesh_Coll.tres" id="4_2wgeh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0jsrj"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -16,23 +19,6 @@ sky = SubResource("Sky_l32ox")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2yssy"]
-albedo_color = Color(0.686275, 1, 1, 1)
-metallic = 1.0
-
-[sub_resource type="QuadMesh" id="QuadMesh_vy0ux"]
-material = SubResource("StandardMaterial3D_2yssy")
-size = Vector2(40, 40)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1o2yy"]
-data = PackedVector3Array(100, -5, 0, -100, -5, 0, 100, 5, 0, -100, -5, 0, -100, 5, 0, 100, 5, 0)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qtdxa"]
-albedo_color = Color(0.211765, 0.054902, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jwojq"]
-albedo_color = Color(0.211765, 0.054902, 0, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7lpw0"]
 albedo_color = Color(0.976471, 0.588235, 0.694118, 1)
 
@@ -40,6 +26,10 @@ albedo_color = Color(0.976471, 0.588235, 0.694118, 1)
 albedo_color = Color(0.211765, 0.054902, 0, 1)
 
 [node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.89678, 18.4328)
+script = ExtResource("3_4tefn")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.755925, 0.0574837, -0.652129, 0.295449, 0.858969, 0.41819, 0.584198, -0.508791, 0.632333, -30, 55, 84)
@@ -50,72 +40,70 @@ transform = Transform3D(0.0434624, 0, 0.999055, 0, 1, 0, -0.999055, 0, 0.0434624
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v3s0t")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-mesh = SubResource("QuadMesh_vy0ux")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_1o2yy")
-
 [node name="Player" parent="." instance=ExtResource("1_o1dam")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0398991, 1.2249, -1.02905)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 2.299, 0)
 
-[node name="Cube" parent="." instance=ExtResource("2_k7ti0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, -1)
+[node name="enemy" parent="." groups=["enemy"] instance=ExtResource("3_gdiei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.98403, 3.00654, 0)
 
-[node name="MeshInstance3D" parent="Cube" index="0"]
-transform = Transform3D(3, 0, 0, 0, 60, 0, 0, 0, 30, 0, 28.8405, -5.51455)
-material_override = SubResource("StandardMaterial3D_qtdxa")
+[node name="obstacles" type="Node3D" parent="."]
 
-[node name="Cube2" parent="." instance=ExtResource("2_k7ti0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -1)
+[node name="Cube2" parent="obstacles" instance=ExtResource("2_k7ti0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -0.0836673)
 
-[node name="Cube3" parent="." instance=ExtResource("2_k7ti0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1, -1)
+[node name="Cube4" parent="obstacles" instance=ExtResource("2_k7ti0")]
+transform = Transform3D(0.707107, 0, 3.53553, 0, 1, 0, -0.707107, 0, 3.53553, 0, 10, -0.538697)
 
-[node name="MeshInstance3D" parent="Cube3" index="0"]
-transform = Transform3D(3, 0, 0, 0, 50, 0, 0, 0, 40, 0, 22.9991, -7.69059)
-material_override = SubResource("StandardMaterial3D_jwojq")
+[node name="Cube5" parent="obstacles" instance=ExtResource("2_k7ti0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7179, 16.9632, 0.75011)
 
-[node name="Cube4" parent="." instance=ExtResource("2_k7ti0")]
-transform = Transform3D(0.707107, 0, 3.53553, 0, 1, 0, -0.707107, 0, 3.53553, 0, 10, -1)
-
-[node name="Cube5" parent="." instance=ExtResource("2_k7ti0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7179, 16.9632, -1)
-
-[node name="Cube6" parent="." instance=ExtResource("2_k7ti0")]
+[node name="Cube6" parent="obstacles" instance=ExtResource("2_k7ti0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2995, 23.7812, -1)
 
-[node name="MeshInstance3D" parent="Cube6" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -3.95771)
+[node name="MeshInstance3D" parent="obstacles/Cube6" index="0"]
+transform = Transform3D(0.999906, 0, 0.137179, 0, 1, 0, -0.0137179, 0, 9.99906, 0, 0, -0.799005)
 material_override = SubResource("StandardMaterial3D_7lpw0")
 
-[node name="Cube7" parent="." instance=ExtResource("2_k7ti0")]
+[node name="Cube7" parent="obstacles" instance=ExtResource("2_k7ti0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1547, 32.2991, -1)
 
-[node name="MeshInstance3D" parent="Cube7" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -3.79733)
+[node name="MeshInstance3D" parent="obstacles/Cube7" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -1.83719)
 material_override = SubResource("StandardMaterial3D_7lpw0")
 
-[node name="Cube8" parent="." instance=ExtResource("2_k7ti0")]
+[node name="Cube10" parent="obstacles" instance=ExtResource("2_k7ti0")]
+transform = Transform3D(108.875, 0, 0, 0, 17.4871, 0, 0, 0, 1, -19.4734, -9.27954, 2.16803)
+visible = false
+
+[node name="MeshInstance3D" parent="obstacles/Cube10" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, 0.192273, 0, -3.79733)
+material_override = SubResource("StandardMaterial3D_7lpw0")
+
+[node name="Cube8" parent="obstacles" instance=ExtResource("2_k7ti0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18257, 41.5441, -1)
 
-[node name="MeshInstance3D" parent="Cube8" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+[node name="MeshInstance3D" parent="obstacles/Cube8" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 1.5664)
 material_override = SubResource("StandardMaterial3D_7lpw0")
 
-[node name="Cube9" parent="." instance=ExtResource("2_k7ti0")]
+[node name="Cube9" parent="obstacles" instance=ExtResource("2_k7ti0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.183, 1.67511, -18.7336)
+visible = false
 
-[node name="MeshInstance3D" parent="Cube9" index="0"]
-transform = Transform3D(20, 0, 0, 0, 50, 0, 0, 0, 3, -11.0069, 22.8114, 8)
+[node name="MeshInstance3D" parent="obstacles/Cube9" index="0"]
+transform = Transform3D(286.892, 0, 0, 0, 138.558, 0, 0, 0, 3.16882, -10.1082, 22.8114, 8)
 material_override = SubResource("StandardMaterial3D_rnqy8")
 
-[editable path="Cube"]
-[editable path="Cube3"]
-[editable path="Cube6"]
-[editable path="Cube7"]
-[editable path="Cube8"]
-[editable path="Cube9"]
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("4_2wgeh")
+cell_size = Vector3(0.5, 0.25, 0.5)
+data = {
+"cells": PackedInt32Array(6, 2, 3, 5, 2, 3, 4, 2, 3, 3, 2, 3, 2, 2, 3, 2, 1, 3, 1, 1, 3, 0, 1, 3, 65535, 1, 3, 0, 2, 3, 1, 2, 3, 65534, 1, 3, 65533, 1, 3, 65532, 1, 3, 65531, 1, 3, 65530, 1, 3, 65534, 2, 3, 65533, 2, 3, 65532, 2, 3, 65531, 2, 3, 65530, 2, 3, 65529, 2, 3, 65528, 2, 3, 65527, 2, 3, 65526, 2, 3, 65525, 2, 3, 65524, 2, 3, 65523, 2, 3, 65522, 2, 3, 65521, 2, 3, 65520, 2, 3, 65519, 2, 3, 65519, 1, 3, 65518, 1, 3, 65520, 0, 3, 65521, 0, 3, 65522, 0, 3, 65523, 0, 3, 65524, 0, 3, 65525, 0, 3, 65526, 0, 3, 65527, 0, 3, 65528, 0, 3, 65529, 0, 3, 7, 2, 3, 8, 2, 3, 9, 2, 3, 10, 2, 3, 11, 2, 3, 12, 2, 3, 12, 1, 3, 13, 2, 3, 13, 1, 3, 14, 1, 3, 15, 1, 3, 16, 1, 3, 17, 1, 3, 14, 2, 3, 15, 2, 3, 16, 2, 3, 17, 2, 3, 18, 2, 3, 19, 2, 3, 20, 2, 3, 20, 1, 3, 21, 1, 3, 21, 0, 3, 20, 0, 3, 19, 0, 3, 19, 1, 3, 22, 1, 3, 22, 2, 3, 23, 1, 3, 23, 0, 3, 23, 65535, 3, 22, 65535, 3, 24, 0, 3, 24, 1, 3, 24, 2, 3, 24, 65535, 3, 24, 65534, 3, 23, 65534, 3, 23, 65533, 3, 22, 65533, 3, 21, 65533, 3, 20, 65533, 3, 19, 65533, 3, 18, 65533, 3, 17, 65533, 3, 16, 65533, 3, 15, 65533, 3, 15, 65534, 3, 16, 65534, 3, 17, 65535, 3, 18, 65535, 3, 19, 65535, 3, 21, 65535, 3, 18, 0, 3, 17, 0, 3, 16, 0, 3, 11, 0, 3, 10, 0, 3, 9, 0, 3, 8, 0, 3, 6, 0, 3, 4, 0, 3, 3, 0, 3, 2, 0, 3, 1, 0, 3, 0, 0, 3, 65535, 0, 3, 65534, 0, 3, 65533, 0, 3, 65532, 0, 3, 65531, 0, 3, 65530, 0, 3, 65526, 65535, 3, 65527, 65535, 3, 65528, 65535, 3, 65530, 65534, 3, 65531, 65534, 3, 65532, 65534, 3, 65534, 65534, 3, 65535, 65534, 3, 1, 65535, 3, 3, 65535, 3, 4, 65535, 3, 5, 65535, 3, 7, 65535, 3, 8, 65535, 3, 9, 65535, 3, 12, 65535, 3, 12, 0, 3, 13, 65535, 3, 14, 65535, 3, 15, 65535, 3, 16, 65535, 3, 14, 65534, 3, 13, 65533, 3, 12, 65533, 3, 11, 65533, 3, 10, 65533, 3, 9, 65533, 3, 8, 65534, 3, 7, 65534, 3, 6, 65534, 3, 5, 65534, 3, 4, 65534, 3, 3, 65534, 3, 2, 65534, 3, 0, 65534, 3, 65533, 65534, 3, 65529, 65534, 3, 65528, 65534, 3, 65528, 65533, 3, 65529, 65533, 3, 65530, 65533, 3, 65531, 65532, 3, 65532, 65532, 3, 65533, 65532, 3, 65534, 65531, 3, 65535, 65531, 3, 0, 65531, 3, 1, 65532, 3, 2, 65532, 3, 3, 65532, 3, 4, 65532, 3, 5, 65532, 3, 6, 65532, 3, 7, 65533, 3, 8, 65533, 3, 14, 65533, 3, 17, 65532, 3, 16, 65532, 3, 15, 65532, 3, 14, 65531, 3, 13, 65531, 3, 12, 65531, 3, 11, 65531, 3, 11, 65532, 3, 10, 65532, 3, 9, 65532, 3, 8, 65532, 3, 7, 65532, 3, 6, 65531, 3, 5, 65531, 3, 4, 65531, 3, 7, 65531, 3, 8, 65531, 3, 9, 65531, 3, 10, 65531, 3, 65533, 65531, 3, 65532, 65531, 3, 65531, 65531, 3, 65530, 65531, 3, 65531, 65530, 3, 65532, 65530, 3, 65533, 65530, 3, 65535, 65530, 3, 1, 65531, 3, 2, 65531, 3, 3, 65531, 3, 0, 65530, 3, 1, 65530, 3, 2, 65530, 3, 3, 65530, 3, 4, 65530, 3, 5, 65530, 3, 6, 65530, 3, 7, 65530, 3, 10, 65530, 3, 9, 65530, 3, 8, 65530, 3, 11, 65530, 3, 12, 65530, 3, 13, 65530, 3, 14, 65530, 3, 16, 65531, 3, 17, 65531, 3, 18, 65531, 3, 19, 65531, 3, 20, 65531, 3, 21, 65531, 3, 19, 65530, 3, 18, 65530, 3, 17, 65530, 3, 65529, 65531, 3, 65528, 65531, 3, 65527, 65531, 3, 65528, 65530, 3, 65529, 65530, 3, 65527, 65530, 3, 65526, 65530, 3, 65526, 65531, 3, 65525, 65531, 3, 65524, 65531, 3, 65523, 65531, 3, 65522, 65531, 3, 65521, 65531, 3, 65523, 65530, 3, 65522, 65530, 3, 65520, 65531, 3, 65524, 65530, 3, 65525, 65530, 3, 65521, 65530, 3, 65520, 65530, 3, 65519, 65530, 3, 65518, 65530, 3, 65517, 65530, 3, 65517, 65531, 3, 65516, 65531, 3, 65516, 65530, 3, 65515, 65530, 3, 65515, 65531, 3, 65515, 65532, 3, 65515, 65533, 3, 65516, 65533, 3, 65516, 65534, 3, 65515, 65534, 3, 65515, 65535, 3, 65516, 65535, 3, 65516, 0, 3, 65516, 1, 3, 65515, 0, 3, 65515, 1, 3, 65515, 2, 3, 65516, 2, 3, 65517, 2, 3, 65517, 1, 3, 65516, 65532, 3, 65517, 65532, 3, 65517, 65533, 3, 65517, 65534, 3, 65518, 65534, 3, 65518, 65535, 3, 65519, 65534, 3, 65520, 65534, 3, 65521, 65534, 3, 65522, 65534, 3, 65522, 65533, 3, 65523, 65533, 3, 65524, 65534, 3, 65525, 65534, 3, 65526, 65534, 3, 65526, 65533, 3, 65525, 65533, 3, 65524, 65533, 3, 65520, 65533, 3, 65519, 65533, 3, 65518, 65533, 3, 65518, 65532, 3, 65518, 65531, 3, 16, 65530, 3, 22, 65531, 3, 22, 65530, 3, 21, 65530, 3, 23, 65530, 3, 24, 65530, 3, 24, 65531, 3, 24, 65532, 3, 65532, 65533, 3, 65533, 65533, 3, 65534, 65533, 3, 65535, 65533, 3, 131092, 65533, 196608, 196596, 65533, 196608)
+}
+metadata/_editor_floor_ = Vector3(0, 2, 0)
+
+[editable path="obstacles/Cube6"]
+[editable path="obstacles/Cube7"]
+[editable path="obstacles/Cube10"]
+[editable path="obstacles/Cube8"]
+[editable path="obstacles/Cube9"]
