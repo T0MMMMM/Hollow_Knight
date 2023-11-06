@@ -1,6 +1,6 @@
 extends Camera3D
  
-@export var lerpspeed = 0.06
+@export var lerpspeed = 0.03
  
 func _ready():
 	pass
