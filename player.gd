@@ -12,8 +12,15 @@ var fell = false
 var gravity = 52
 var life = 100
 var damage_collision = true
+
+var wall_left = false
+var wall_right = false
+var wall_jump = false
+
 @onready var ray_cast_left = $raycast_left
 @onready var ray_cast_right = $raycast_right
+
+
 func _process(delta):
 	$life.text = str(life)
 
@@ -55,7 +62,7 @@ func hit(mob):
 func apply_gravity(delta):
 	position.z = 0
 	if not is_on_floor():
-		FRICTION = 0.4
+		FRICTION = 0.1
 		velocity.y -= gravity * delta
 		velocity.y = min(velocity.y, 250)
 	else:
@@ -65,6 +72,9 @@ func jump(direction, delta):
 	
 	if is_on_floor():
 		climb = false
+		wall_left = true
+		wall_right = true
+		wall_jump = false
 		DOUBLE_JUMP = 1
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = JUMP_FORCE
@@ -74,27 +84,31 @@ func jump(direction, delta):
 		climb = true
 	
 	# Handle Wall Jump / climb
-	if climb : 
+	if climb: 
 		if ray_cast_right.is_colliding() or ray_cast_left.is_colliding():
-			#velocity.y = -5
-			DOUBLE_JUMP = 1
-			if Input.is_action_just_pressed("jump") && ray_cast_right.is_colliding():
-				print("droite")
+			velocity.y = -5
+			if Input.is_action_just_pressed("jump") && ray_cast_right.is_colliding() and wall_right:
+				wall_right = false
+				wall_left = true
 				velocity.y = JUMP_FORCE
 				velocity.x = -18
+				DOUBLE_JUMP += 1
 			
-			if Input.is_action_just_pressed("jump") && ray_cast_left.is_colliding():
-				print("gauche")
+			if Input.is_action_just_pressed("jump") && ray_cast_left.is_colliding() and wall_left:
+				wall_left = false
+				wall_right = true
 				velocity.y = JUMP_FORCE
 				velocity.x = 18
+				DOUBLE_JUMP += 1
 	
 	# Handle Double Jump
-	if Input.is_action_just_released("jump") and velocity.y > JUMP_RELEASED_FORCE:
+	if Input.is_action_just_released("jump") and velocity.y > JUMP_RELEASED_FORCE :
 		velocity.y = JUMP_RELEASED_FORCE
 	
 	if Input.is_action_just_pressed("jump") and DOUBLE_JUMP > 0:
 		velocity.y = JUMP_FORCE
 		DOUBLE_JUMP -= 1
+		print("aaa")
 	
 
 func _on_no_collision_timeout():
