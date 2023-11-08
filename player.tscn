@@ -24,4 +24,12 @@ font_size = 80
 [node name="no_collision" type="Timer" parent="."]
 wait_time = 0.7
 
+[node name="raycast_left" type="RayCast3D" parent="."]
+transform = Transform3D(-2.06328e-05, 0.3, 0.000155783, 0.0394381, 0.000157143, -0.297396, -0.297396, 2.55648e-08, -0.0394382, -0.3, 0.95, 0)
+debug_shape_thickness = 4
+
+[node name="raycast_right" type="RayCast3D" parent="."]
+transform = Transform3D(-1.31134e-08, -0.3, 0, 0.3, -1.31134e-08, 0, 0, 0, 0.3, 0.3, 0.95, 0)
+debug_shape_thickness = 4
+
 [connection signal="timeout" from="no_collision" to="." method="_on_no_collision_timeout"]

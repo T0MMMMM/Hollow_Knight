@@ -6,15 +6,14 @@ const JUMP_VELOCITY = 14.5
 const JUMP_RELEASED_FORCE = 6.0
 const JUMP_FORCE = 22.0
 @export var DOUBLE_JUMP = 1
+var FRICTION = 100
 var climb = true
 var fell = false
-
 var gravity = 52
-
 var life = 100
-
 var damage_collision = true
-
+@onready var ray_cast_left = $raycast_left
+@onready var ray_cast_right = $raycast_right
 func _process(delta):
 	$life.text = str(life)
 
@@ -26,13 +25,13 @@ func _physics_process(delta):
 	# Mouvement
 	var input_dir = Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
+	if direction.x:
+		velocity.x = move_toward(velocity.x, SPEED * direction.x, 10)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, FRICTION)
 	
 	# Handle Jump
-	jump(direction)
+	jump(direction, delta)
 	
 	move_and_slide()
 	
@@ -56,10 +55,13 @@ func hit(mob):
 func apply_gravity(delta):
 	position.z = 0
 	if not is_on_floor():
+		FRICTION = 0.4
 		velocity.y -= gravity * delta
 		velocity.y = min(velocity.y, 250)
+	else:
+		FRICTION = 100
 
-func jump(direction):
+func jump(direction, delta):
 	
 	if is_on_floor():
 		climb = false
@@ -73,13 +75,18 @@ func jump(direction):
 	
 	# Handle Wall Jump / climb
 	if climb : 
-		if is_on_wall():
-			velocity.y = -0.9
+		if ray_cast_right.is_colliding() or ray_cast_left.is_colliding():
+			#velocity.y = -5
 			DOUBLE_JUMP = 1
-			if Input.is_action_just_pressed("jump") && direction.x:
-				velocity.y = 19
-				velocity.x = 40 * direction.x
-			return
+			if Input.is_action_just_pressed("jump") && ray_cast_right.is_colliding():
+				print("droite")
+				velocity.y = JUMP_FORCE
+				velocity.x = -18
+			
+			if Input.is_action_just_pressed("jump") && ray_cast_left.is_colliding():
+				print("gauche")
+				velocity.y = JUMP_FORCE
+				velocity.x = 18
 	
 	# Handle Double Jump
 	if Input.is_action_just_released("jump") and velocity.y > JUMP_RELEASED_FORCE:
