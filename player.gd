@@ -12,6 +12,7 @@ var fell = false
 var gravity = 52
 var life = 100
 var damage_collision = true
+var last_position_on_ground
 
 var wall_left = false
 var wall_right = false
@@ -66,6 +67,7 @@ func apply_gravity(delta):
 		velocity.y -= gravity * delta
 		velocity.y = min(velocity.y, 250)
 	else:
+		last_position_on_ground = position
 		FRICTION = 100
 
 func jump(direction, delta):
