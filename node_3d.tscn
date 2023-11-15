@@ -129,10 +129,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 9.24652, -7.09968)
 script = SubResource("GDScript_h2f0b")
 
 [node name="item" parent="." instance=ExtResource("8_4jeyg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2069, 4.73974, -0.105121)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.94564, 0.441804, -0.105121)
 
 [node name="item2" parent="." instance=ExtResource("8_4jeyg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6661, 4.73974, -0.105121)
+TYPE = "add_dash"
+
+[node name="CollisionShape3D" parent="item2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.26126, -4.29794, 0)
+
+[node name="GPUParticles3D" parent="item2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.26126, -4.29794, 0)
+
+[node name="GPUParticles3D2" parent="item2" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.26126, -4.29794, 0)
+
+[node name="GPUParticles3D3" parent="item2" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.26126, -4.29794, 0)
+
+[node name="item3" parent="." instance=ExtResource("8_4jeyg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9776, 5.93421, -0.105121)
+TYPE = "add_wall_jump"
+
+[node name="CollisionShape3D" parent="item3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.26126, -4.29794, 0)
+
+[node name="GPUParticles3D" parent="item3" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.26126, -4.29794, 0)
+
+[node name="GPUParticles3D2" parent="item3" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.26126, -4.29794, 0)
+
+[node name="GPUParticles3D3" parent="item3" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.26126, -4.29794, 0)
 
 [node name="Node3D" parent="." instance=ExtResource("9_6egn1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.17883, 9.70135, 1.5)
@@ -158,3 +187,4 @@ transform = Transform3D(-0.998143, 0.0480944, 0.0373745, -0.0397494, -0.979276, 
 [editable path="obstacles/Cube8"]
 [editable path="obstacles/Cube9"]
 [editable path="item2"]
+[editable path="item3"]
