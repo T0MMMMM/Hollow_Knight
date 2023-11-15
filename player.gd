@@ -5,7 +5,8 @@ const SPEED = 10.0
 const JUMP_VELOCITY = 14.5
 const JUMP_RELEASED_FORCE = 6.0
 const JUMP_FORCE = 22.0
-@export var DOUBLE_JUMP = 1
+@export var INT_DOUBLE_JUMP = 3
+var DOUBLE_JUMP = INT_DOUBLE_JUMP
 var FRICTION = 100
 var climb = true
 var fell = false
@@ -13,6 +14,8 @@ var gravity = 52
 var life = 100
 var damage_collision = true
 var last_position_on_ground
+var block_input = "None"
+var input_dir = Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
 
 var wall_left = false
 var wall_right = false
@@ -31,7 +34,13 @@ func _physics_process(delta):
 	apply_gravity(delta)
 	
 	# Mouvement
-	var input_dir = Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
+	if block_input == "None":
+		input_dir = Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
+	if block_input == "Right":
+		input_dir = Input.get_vector("move_left", "", "ui_up", "ui_down")
+	if block_input == "Left":
+		input_dir = Input.get_vector("", "move_right", "ui_up", "ui_down")
+		
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction.x:
 		velocity.x = move_toward(velocity.x, SPEED * direction.x, 10)
@@ -77,7 +86,7 @@ func jump(direction, delta):
 		wall_left = true
 		wall_right = true
 		wall_jump = false
-		DOUBLE_JUMP = 1
+		DOUBLE_JUMP = INT_DOUBLE_JUMP
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = JUMP_FORCE
 		return
@@ -89,29 +98,33 @@ func jump(direction, delta):
 	if climb: 
 		if ray_cast_right.is_colliding() or ray_cast_left.is_colliding():
 			velocity.y = -5
-			if Input.is_action_just_pressed("jump") && ray_cast_right.is_colliding() and wall_right:
-				wall_right = false
-				wall_left = true
+			if Input.is_action_just_pressed("jump") && ray_cast_right.is_colliding():
 				velocity.y = JUMP_FORCE
 				velocity.x = -18
-				DOUBLE_JUMP += 1
+				block_input = "Right"
+				$timer_after_jump.start()
 			
-			if Input.is_action_just_pressed("jump") && ray_cast_left.is_colliding() and wall_left:
-				wall_left = false
-				wall_right = true
+			
+			if Input.is_action_just_pressed("jump") && ray_cast_left.is_colliding():
 				velocity.y = JUMP_FORCE
 				velocity.x = 18
-				DOUBLE_JUMP += 1
+				block_input = "Left"
+				$timer_after_jump.start()
+				
+				
 	
 	# Handle Double Jump
-	if Input.is_action_just_released("jump") and velocity.y > JUMP_RELEASED_FORCE :
+	if Input.is_action_just_released("jump") && velocity.y > JUMP_RELEASED_FORCE :
 		velocity.y = JUMP_RELEASED_FORCE
 	
-	if Input.is_action_just_pressed("jump") and DOUBLE_JUMP > 0:
+	if Input.is_action_just_pressed("jump") && DOUBLE_JUMP > 0 && !ray_cast_left.is_colliding() && !ray_cast_right.is_colliding():
 		velocity.y = JUMP_FORCE
 		DOUBLE_JUMP -= 1
-		print("aaa")
 	
 
 func _on_no_collision_timeout():
 	damage_collision = true
+
+
+func _on_timer_after_jump_timeout():
+	block_input = "None"

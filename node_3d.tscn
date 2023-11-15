@@ -45,12 +45,12 @@ environment = SubResource("Environment_v3s0t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 2.299, 0)
 
 [node name="enemy" parent="." groups=["enemy"] instance=ExtResource("3_gdiei")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.98403, 3.00654, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.8924, 3.00654, 0)
 
 [node name="obstacles" type="Node3D" parent="."]
 
 [node name="Cube2" parent="obstacles" instance=ExtResource("2_k7ti0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -0.0836673)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6623, 1.44982, -0.926162)
 
 [node name="Cube3" parent="obstacles" instance=ExtResource("2_k7ti0")]
 transform = Transform3D(1, 0, 0, 0, 10.5997, 0, 0, 0, 3.92931, -11.6562, 1, -0.0836673)
@@ -62,7 +62,7 @@ transform = Transform3D(1, 0, 0, 0, 10.5997, 0, 0, 0, 3.92931, -4.88085, 23.4843
 transform = Transform3D(0.707107, 0, 3.53553, 0, 1, 0, -0.707107, 0, 3.53553, 0, 10, -0.538697)
 
 [node name="Cube5" parent="obstacles" instance=ExtResource("2_k7ti0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7179, 16.9632, 0.75011)
+transform = Transform3D(0.468681, 0, 0, 0, 0.0553865, 0, 0, 0, 0.951811, 12.9002, 2.82272, -1.64541)
 
 [node name="Cube6" parent="obstacles" instance=ExtResource("2_k7ti0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2995, 23.7812, -1)
@@ -102,7 +102,7 @@ transform = Transform3D(286.892, 0, 0, 0, 138.558, 0, 0, 0, 3.16882, -10.1082, 2
 material_override = SubResource("StandardMaterial3D_rnqy8")
 
 [node name="spike" parent="obstacles" instance=ExtResource("5_lmfiq")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15.5291, 0.00933743, -0.935773)
+transform = Transform3D(-4.59955, 0, -0.121539, 0, 1, 0, 0.151297, 0, -3.69487, 25.6159, 0.00933743, -0.935773)
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("4_2wgeh")
