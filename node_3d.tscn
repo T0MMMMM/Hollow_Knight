@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://wu1bgooeqvfb"]
+[gd_scene load_steps=15 format=3 uid="uid://wu1bgooeqvfb"]
 
 [ext_resource type="PackedScene" uid="uid://cus0dgndulm1y" path="res://player.tscn" id="1_o1dam"]
 [ext_resource type="PackedScene" uid="uid://3a5vge57q5rf" path="res://cube.tscn" id="2_k7ti0"]
@@ -7,6 +7,7 @@
 [ext_resource type="MeshLibrary" uid="uid://bu4j0tejjik8s" path="res://tiles_mesh_Coll.tres" id="4_2wgeh"]
 [ext_resource type="PackedScene" uid="uid://b6p8wvtpqosu1" path="res://spike.tscn" id="5_lmfiq"]
 [ext_resource type="PackedScene" uid="uid://dadmyh34uk4h8" path="res://falling_leaves.tscn" id="7_yn33h"]
+[ext_resource type="PackedScene" uid="uid://dw5gvmmurx2d3" path="res://item.tscn" id="8_4jeyg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0jsrj"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -132,6 +133,9 @@ metadata/_editor_floor_ = Vector3(0, 2, 0)
 [node name="Node3D" parent="Particles" instance=ExtResource("7_yn33h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 9.24652, -7.09968)
 script = SubResource("GDScript_h2f0b")
+
+[node name="item" parent="." instance=ExtResource("8_4jeyg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2069, 4.73974, -0.105121)
 
 [editable path="obstacles/Cube6"]
 [editable path="obstacles/Cube7"]

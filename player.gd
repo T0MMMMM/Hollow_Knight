@@ -5,7 +5,7 @@ const SPEED = 10.0
 const JUMP_VELOCITY = 14.5
 const JUMP_RELEASED_FORCE = 6.0
 const JUMP_FORCE = 22.0
-@export var INT_DOUBLE_JUMP = 3
+@export var INT_DOUBLE_JUMP = 0
 var DOUBLE_JUMP = INT_DOUBLE_JUMP
 var FRICTION = 100
 var climb = true
@@ -75,7 +75,7 @@ func apply_gravity(delta):
 	coord = position
 	position.z = 0
 	if not is_on_floor():
-		FRICTION = 0.1
+		FRICTION = 0.4
 		velocity.y -= gravity * delta
 		velocity.y = min(velocity.y, 250)
 	else:

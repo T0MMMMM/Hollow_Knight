@@ -38,7 +38,7 @@ one_shot = true
 
 [node name="coord" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75794, 0)
-pixel_size = 0.001
+pixel_size = 0.01
 modulate = Color(0, 0, 0, 1)
 text = "%position%"
 font_size = 64
