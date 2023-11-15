@@ -36,5 +36,12 @@ debug_shape_thickness = 4
 wait_time = 0.3
 one_shot = true
 
+[node name="coord" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75794, 0)
+pixel_size = 0.001
+modulate = Color(0, 0, 0, 1)
+text = "%position%"
+font_size = 64
+
 [connection signal="timeout" from="no_collision" to="." method="_on_no_collision_timeout"]
 [connection signal="timeout" from="timer_after_jump" to="." method="_on_timer_after_jump_timeout"]

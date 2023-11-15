@@ -42,7 +42,7 @@ transform = Transform3D(0.0434624, 0, 0.999055, 0, 1, 0, -0.999055, 0, 0.0434624
 environment = SubResource("Environment_v3s0t")
 
 [node name="Player" parent="." instance=ExtResource("1_o1dam")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 2.299, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.285968, 2.299, 0)
 
 [node name="enemy" parent="." groups=["enemy"] instance=ExtResource("3_gdiei")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.8924, 3.00654, 0)

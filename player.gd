@@ -16,6 +16,7 @@ var damage_collision = true
 var last_position_on_ground
 var block_input = "None"
 var input_dir = Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
+var coord = position
 
 var wall_left = false
 var wall_right = false
@@ -27,6 +28,7 @@ var wall_jump = false
 
 func _process(delta):
 	$life.text = str(life)
+	$coord.text = str(coord)
 
 func _physics_process(delta):
 	
@@ -70,13 +72,13 @@ func hit(mob):
 	$no_collision.start()
 
 func apply_gravity(delta):
+	coord = position
 	position.z = 0
 	if not is_on_floor():
 		FRICTION = 0.1
 		velocity.y -= gravity * delta
 		velocity.y = min(velocity.y, 250)
 	else:
-		last_position_on_ground = position
 		FRICTION = 100
 
 func jump(direction, delta):
