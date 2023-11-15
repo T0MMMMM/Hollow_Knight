@@ -39,9 +39,9 @@ func _physics_process(delta):
 	if block_input == "None":
 		input_dir = Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
 	if block_input == "Right":
-		input_dir = Input.get_vector("move_left", "", "ui_up", "ui_down")
+		input_dir = Input.get_vector("move_left", "none", "ui_up", "ui_down")
 	if block_input == "Left":
-		input_dir = Input.get_vector("", "move_right", "ui_up", "ui_down")
+		input_dir = Input.get_vector("none", "move_right", "ui_up", "ui_down")
 		
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction.x:
