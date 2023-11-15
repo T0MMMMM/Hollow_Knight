@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://wu1bgooeqvfb"]
+[gd_scene load_steps=16 format=3 uid="uid://wu1bgooeqvfb"]
 
 [ext_resource type="PackedScene" uid="uid://cus0dgndulm1y" path="res://player.tscn" id="1_o1dam"]
 [ext_resource type="PackedScene" uid="uid://3a5vge57q5rf" path="res://cube.tscn" id="2_k7ti0"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b6p8wvtpqosu1" path="res://spike.tscn" id="5_lmfiq"]
 [ext_resource type="PackedScene" uid="uid://dadmyh34uk4h8" path="res://falling_leaves.tscn" id="7_yn33h"]
 [ext_resource type="PackedScene" uid="uid://dw5gvmmurx2d3" path="res://item.tscn" id="8_4jeyg"]
+[ext_resource type="PackedScene" uid="uid://cao5a2nmp3sbk" path="res://ronce.tscn" id="9_6egn1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0jsrj"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -137,8 +138,30 @@ script = SubResource("GDScript_h2f0b")
 [node name="item" parent="." instance=ExtResource("8_4jeyg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2069, 4.73974, -0.105121)
 
+[node name="item2" parent="." instance=ExtResource("8_4jeyg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6661, 4.73974, -0.105121)
+
+[node name="Node3D" parent="." instance=ExtResource("9_6egn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.17883, 9.70135, 1.5)
+
+[node name="Node3D2" parent="." instance=ExtResource("9_6egn1")]
+transform = Transform3D(-0.998143, 0.0480944, 0.0373745, -0.0481511, -0.99884, -0.000617795, 0.0373014, -0.0024162, 0.999301, -8.17883, 12.2787, 1.19906)
+
+[node name="Node3D3" parent="." instance=ExtResource("9_6egn1")]
+transform = Transform3D(-0.998143, 0.0480944, 0.0373745, -0.0397494, -0.979276, 0.198589, 0.0461509, 0.196735, 0.97937, -8.17883, 13.5511, 1.48491)
+
+[node name="Node3D4" parent="." instance=ExtResource("9_6egn1")]
+transform = Transform3D(-0.998143, 0.0480944, 0.0373745, -0.0397494, -0.979276, 0.198589, 0.0461509, 0.196735, 0.97937, -8.17883, 14.0381, 0.717996)
+
+[node name="Node3D5" parent="." instance=ExtResource("9_6egn1")]
+transform = Transform3D(-0.998143, 0.0480944, 0.0373745, -0.0397494, -0.979276, 0.198589, 0.0461509, 0.196735, 0.97937, -8.17883, 14.8932, 0.31909)
+
+[node name="Node3D6" parent="." instance=ExtResource("9_6egn1")]
+transform = Transform3D(-0.998143, 0.0480944, 0.0373745, -0.0397494, -0.979276, 0.198589, 0.0461509, 0.196735, 0.97937, -8.17883, 16.1488, -0.111416)
+
 [editable path="obstacles/Cube6"]
 [editable path="obstacles/Cube7"]
 [editable path="obstacles/Cube10"]
 [editable path="obstacles/Cube8"]
 [editable path="obstacles/Cube9"]
+[editable path="item2"]

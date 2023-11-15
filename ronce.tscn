@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cao5a2nmp3sbk"]
+
+[ext_resource type="Texture2D" uid="uid://b2k4iru33ysj5" path="res://assets/ronce_couleur-removebg-preview.png" id="1_8qjub"]
+
+[node name="Node3D" type="Sprite3D"]
+texture = ExtResource("1_8qjub")
