@@ -8,6 +8,8 @@ const JUMP_FORCE = 22.0
 @export var INT_DOUBLE_JUMP = 0
 var DOUBLE_JUMP = INT_DOUBLE_JUMP
 var FRICTION = 100
+var SPEEDDASH = 70
+
 var climb = true
 var fell = false
 var gravity = 52
@@ -24,6 +26,7 @@ var wall_jump = false
 
 var enable_wall_jump = false
 var enable_dash = false
+var update_friction = false
 
 var dashing = false
 var looking_at = "right"
@@ -36,12 +39,26 @@ var number_dash = 1
 func _process(delta):
 	$life.text = str(life)
 	$coord.text = str(coord)
+	
+	
+func dash(sens):
+	if Input.is_action_just_pressed("right_click") and enable_dash and number_dash == 1:
+		dashing = true
+		FRICTION = 0
+		velocity.x = SPEEDDASH * sens
+		number_dash -= 1
+		enable_dash = false
+		$timer_dash.start()
+		$timer_after_dash.start()
+
+
 
 func _physics_process(delta):
-	
 	# Add the gravity
 	apply_gravity(delta)
 	
+	dash(looking_at)
+		
 	# Mouvement
 	if block_input == "None":
 		input_dir = Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
@@ -58,32 +75,11 @@ func _physics_process(delta):
 		
 	if velocity.x > 0:
 		$Node3D.rotation.y = deg_to_rad(0)
-		looking_at = "right"
+		looking_at = 1 # 1 = right 
 	elif velocity.x < 0:
 		$Node3D.rotation.y = deg_to_rad(180)
-		looking_at = "left"
+		looking_at = -1 # -1 = left
 		
-	if Input.is_action_just_pressed("right_click") and enable_dash and number_dash == 1:
-		if looking_at == "right":
-			dashing = true
-			FRICTION = 0
-			velocity.x = 100
-			number_dash -= 1
-			enable_dash = false
-			$timer_dash.start()
-			$timer_after_dash.start()
-			
-		if looking_at == "left":
-			dashing = true
-			FRICTION = 0
-			velocity.x = -100
-			number_dash -= 1
-			enable_dash = false
-			$timer_dash.start()
-			$timer_after_dash.start()
-					
-		
-	
 	# Handle Jump
 	jump(direction, delta)
 	
@@ -109,12 +105,10 @@ func hit(mob):
 func apply_gravity(delta):
 	coord = position
 	position.z = 0
-	if not is_on_floor():
+	if not is_on_floor() or dashing:
 		FRICTION = 0.4
 		velocity.y -= gravity * delta
 		velocity.y = min(velocity.y, 250)
-	elif dashing:
-		FRICTION = 0.4
 	else:
 		FRICTION = 100
 
