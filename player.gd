@@ -31,9 +31,12 @@ var update_friction = false
 var dashing = false
 var looking_at = "right"
 var number_dash = 1
+@onready var raycast_left = $collision_with_wall/raycast_left
+@onready var raycast_right = $collision_with_wall/raycast_right
+@onready var raycast_hang_left = $collision_with_wall/raycast_hang_left
+@onready var raycast_hang_right = $collision_with_wall/raycast_hang_right
 
-@onready var ray_cast_left = $raycast_left
-@onready var ray_cast_right = $raycast_right
+@onready var timer_after_jump = $collision_with_wall/timer_after_jump
 
 
 func _process(delta):
@@ -44,6 +47,7 @@ func _process(delta):
 func dash(sens):
 	if Input.is_action_just_pressed("right_click") and enable_dash and number_dash == 1:
 		dashing = true
+		block_input = "R&L"
 		FRICTION = 0
 		velocity.x = SPEEDDASH * sens
 		number_dash -= 1
@@ -52,13 +56,19 @@ func dash(sens):
 		$timer_after_dash.start()
 
 
+func hang():
+	if velocity.y < 0 and ((!raycast_right.is_colliding() and raycast_hang_right.is_colliding()) or (!raycast_left.is_colliding() and raycast_hang_left.is_colliding())):
+		velocity.y = 0
+		if Input.is_action_just_pressed("jump"):
+			velocity.y = JUMP_FORCE
+
+
 
 func _physics_process(delta):
 	# Add the gravity
 	apply_gravity(delta)
-	
+	hang()
 	dash(looking_at)
-		
 	# Mouvement
 	if block_input == "None":
 		input_dir = Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
@@ -66,6 +76,8 @@ func _physics_process(delta):
 		input_dir = Input.get_vector("move_left", "none", "ui_up", "ui_down")
 	if block_input == "Left":
 		input_dir = Input.get_vector("none", "move_right", "ui_up", "ui_down")
+	if block_input == "R&L":
+		input_dir = Input.get_vector("none", "none", "ui_up", "ui_down")
 		
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction.x:
@@ -132,21 +144,21 @@ func jump(direction, delta):
 	
 	# Handle Wall Jump / climb
 	if climb: 
-		if ray_cast_right.is_colliding() or ray_cast_left.is_colliding():
+		if raycast_right.is_colliding() or raycast_left.is_colliding():
 			velocity.y = -6
-			if Input.is_action_just_pressed("jump") && ray_cast_right.is_colliding() && enable_wall_jump:
+			if Input.is_action_just_pressed("jump") && raycast_right.is_colliding() && enable_wall_jump:
 				velocity.y = JUMP_FORCE
 				velocity.x = -18
 				block_input = "Right"
-				$timer_after_jump.start()
+				timer_after_jump.start()
 			
 			
 			
-			if Input.is_action_just_pressed("jump") && ray_cast_left.is_colliding() && enable_wall_jump:
+			if Input.is_action_just_pressed("jump") && raycast_left.is_colliding() && enable_wall_jump:
 				velocity.y = JUMP_FORCE
 				velocity.x = 18
 				block_input = "Left"
-				$timer_after_jump.start()
+				timer_after_jump.start()
 			
 			
 	
@@ -154,9 +166,10 @@ func jump(direction, delta):
 	if Input.is_action_just_released("jump") && velocity.y > JUMP_RELEASED_FORCE:
 		velocity.y = JUMP_RELEASED_FORCE
 	
-	if Input.is_action_just_pressed("jump") && DOUBLE_JUMP > 0 && !ray_cast_left.is_colliding() && !ray_cast_right.is_colliding():
+	if Input.is_action_just_pressed("jump") && DOUBLE_JUMP > 0 && !raycast_left.is_colliding() && !raycast_right.is_colliding():
 		velocity.y = JUMP_FORCE
 		DOUBLE_JUMP -= 1
+		
 	
 
 func _on_no_collision_timeout():
@@ -170,6 +183,7 @@ func _on_timer_after_jump_timeout():
 func _on_timer_dash_timeout():
 	dashing = false
 	velocity.x = velocity.x / 10
+	block_input = "None"
 
 
 func _on_timer_after_dash_timeout():
