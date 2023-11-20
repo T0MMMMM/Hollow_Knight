@@ -58,23 +58,23 @@ wait_time = 0.37
 one_shot = true
 
 [node name="raycast_left" type="RayCast3D" parent="collision_with_wall"]
-transform = Transform3D(-0.00915957, 0.299858, -0.0070415, 0.0394381, 0.000157139, -1.98264, -0.297255, -0.00921894, -0.262829, -0.299858, 0.95, 0.00921904)
+transform = Transform3D(-0.0089942, 0.299889, -0.008033, 1.99962, 0.0011951, -0.00575923, -0.0381674, -0.00805736, -0.299837, -0.299858, 0.95, 0.00921904)
 debug_shape_thickness = 4
 
 [node name="raycast_right" type="RayCast3D" parent="collision_with_wall"]
-transform = Transform3D(-8.73815e-08, -0.299859, 0.00921907, 2, -1.31134e-08, 4.35726e-15, 2.68649e-09, 0.00921907, 0.299859, 0.299858, 0.95, -0.00921904)
+transform = Transform3D(-8.73815e-08, -0.299858, 0.00921905, 2, -1.31134e-08, 3.99643e-15, 2.68649e-09, 0.00921905, 0.299858, 0.299858, 0.95, -0.00921904)
 debug_shape_thickness = 4
 
 [node name="raycast_hang_left" type="RayCast3D" parent="collision_with_wall"]
-transform = Transform3D(-0.00915975, 0.299858, -0.00704156, 0.0394381, 0.000157153, -1.98264, -0.297255, -0.00921912, -0.262829, -0.299858, 0.682902, 0.00921904)
+transform = Transform3D(-0.00899493, 0.299889, -0.00803307, 1.99962, 0.00119521, -0.00575923, -0.0381674, -0.00805743, -0.299837, -0.299858, 0.682902, 0.00921904)
 debug_shape_thickness = 4
 
 [node name="raycast_hang_right" type="RayCast3D" parent="collision_with_wall"]
-transform = Transform3D(-8.73815e-08, -0.299859, 0.00921907, 2, -1.31134e-08, 3.23559e-16, 2.68652e-09, 0.00921907, 0.299859, 0.299858, 0.682902, -0.00921904)
+transform = Transform3D(-8.73815e-08, -0.299858, 0.00921905, 2, -1.31134e-08, -5.09107e-16, 2.68652e-09, 0.00921905, 0.299858, 0.299858, 0.682902, -0.00921904)
 debug_shape_thickness = 4
 
 [node name="timer_hang" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2308.37
 one_shot = true
 
 [connection signal="timeout" from="no_collision" to="." method="_on_no_collision_timeout"]
