@@ -73,7 +73,11 @@ debug_shape_thickness = 4
 transform = Transform3D(-8.73815e-08, -0.299859, 0.00921907, 2, -1.31134e-08, 3.23559e-16, 2.68652e-09, 0.00921907, 0.299859, 0.299858, 0.682902, -0.00921904)
 debug_shape_thickness = 4
 
+[node name="timer_hang" type="Timer" parent="."]
+wait_time = 4.0
+
 [connection signal="timeout" from="no_collision" to="." method="_on_no_collision_timeout"]
 [connection signal="timeout" from="timer_dash" to="." method="_on_timer_dash_timeout"]
 [connection signal="timeout" from="timer_after_dash" to="." method="_on_timer_after_dash_timeout"]
 [connection signal="timeout" from="collision_with_wall/timer_after_jump" to="." method="_on_timer_after_jump_timeout"]
+[connection signal="timeout" from="timer_hang" to="." method="_on_timer_hang_timeout"]

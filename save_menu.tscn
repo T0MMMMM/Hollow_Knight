@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://81mcwtlrdu7w"]
+
+[ext_resource type="Script" path="res://save_menu.gd" id="1_eck6o"]
+[ext_resource type="Texture2D" uid="uid://bhce73710vjy7" path="res://bg.jpeg" id="2_vkf8t"]
+[ext_resource type="FontFile" uid="uid://cisrgo78pqxnc" path="res://Pixelme.ttf" id="3_hkgjc"]
+[ext_resource type="Theme" uid="uid://dgg1lf5l1p5ft" path="res://theme.tres" id="4_laox2"]
+
+[node name="save_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eck6o")
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(538.5, 359)
+scale = Vector2(0.559896, 0.664815)
+texture = ExtResource("2_vkf8t")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 364.0
+offset_top = 100.0
+offset_right = 758.0
+offset_bottom = 163.0
+theme_override_fonts/font = ExtResource("3_hkgjc")
+theme_override_font_sizes/font_size = 60
+text = "Hollow Knight"
+
+[node name="Load 1" type="Button" parent="."]
+texture_filter = 1
+offset_left = 438.0
+offset_top = 267.0
+offset_right = 641.0
+offset_bottom = 347.0
+theme = ExtResource("4_laox2")
+text = "Load 1"
+
+[node name="Back" type="Button" parent="."]
+texture_filter = 1
+offset_left = 437.0
+offset_top = 450.0
+offset_right = 640.0
+offset_bottom = 531.0
+theme = ExtResource("4_laox2")
+text = "Back"
+
+[connection signal="pressed" from="Load 1" to="." method="_on_load_1_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

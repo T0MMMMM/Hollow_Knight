@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3ehpfvucgt4y"]
+
+[ext_resource type="Script" path="res://Paused.gd" id="1_g5smm"]
+[ext_resource type="Texture2D" uid="uid://bhce73710vjy7" path="res://bg.jpeg" id="2_tyn8w"]
+[ext_resource type="FontFile" uid="uid://cisrgo78pqxnc" path="res://Pixelme.ttf" id="3_xfxdl"]
+[ext_resource type="Theme" uid="uid://dgg1lf5l1p5ft" path="res://theme.tres" id="4_4p46q"]
+
+[node name="paused" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g5smm")
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(538.5, 359)
+scale = Vector2(0.559896, 0.664815)
+texture = ExtResource("2_tyn8w")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 364.0
+offset_top = 100.0
+offset_right = 758.0
+offset_bottom = 163.0
+theme_override_fonts/font = ExtResource("3_xfxdl")
+theme_override_font_sizes/font_size = 60
+text = "Game Paused"
+
+[node name="Save" type="Button" parent="."]
+texture_filter = 1
+offset_left = 438.0
+offset_top = 267.0
+offset_right = 641.0
+offset_bottom = 347.0
+theme = ExtResource("4_4p46q")
+text = "Save"
+
+[node name="Back" type="Button" parent="."]
+texture_filter = 1
+offset_left = 437.0
+offset_top = 450.0
+offset_right = 640.0
+offset_bottom = 531.0
+theme = ExtResource("4_4p46q")
+text = "Back"
+
+[node name="load" type="Button" parent="."]
+texture_filter = 1
+offset_left = 439.0
+offset_top = 359.0
+offset_right = 640.0
+offset_bottom = 440.0
+theme = ExtResource("4_4p46q")
+text = "Load"
+
+[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="load" to="." method="_on_load_pressed"]

@@ -1,4 +1,4 @@
-extends Node2D
+extends Node3D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -8,5 +8,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var texture3d = $SubViewport.get_texture()
-	$screen.texture = texture3d
+	if Input.is_action_just_pressed("option"):
+		get_tree().paused = !get_tree().paused
+		$CanvasLayer/paused.show()

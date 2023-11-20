@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhvfijndklrfi"]
+[gd_scene load_steps=6 format=3 uid="uid://dhvfijndklrfi"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_ijgd2"]
 [ext_resource type="Texture2D" uid="uid://bhce73710vjy7" path="res://bg.jpeg" id="2_omwel"]
 [ext_resource type="FontFile" uid="uid://cisrgo78pqxnc" path="res://Pixelme.ttf" id="3_4o2iu"]
 [ext_resource type="Theme" uid="uid://dgg1lf5l1p5ft" path="res://theme.tres" id="4_631i7"]
+[ext_resource type="PackedScene" uid="uid://b3ehpfvucgt4y" path="res://paused.tscn" id="5_4feug"]
 
 [node name="menu" type="Control"]
+process_mode = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,6 +60,10 @@ offset_right = 640.0
 offset_bottom = 531.0
 theme = ExtResource("4_631i7")
 text = "Exit"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="paused" parent="CanvasLayer" instance=ExtResource("5_4feug")]
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="option" to="." method="_on_option_pressed"]

@@ -13,7 +13,6 @@ var SPEEDDASH = 70
 var climb = true
 var fell = false
 var gravity = 52
-var life = 100
 var damage_collision = true
 var last_position_on_ground
 var block_input = "None"
@@ -28,6 +27,8 @@ var enable_wall_jump = false
 var enable_dash = false
 var update_friction = false
 
+var hanging = true
+
 var dashing = false
 var looking_at = "right"
 var number_dash = 1
@@ -38,36 +39,19 @@ var number_dash = 1
 
 @onready var timer_after_jump = $collision_with_wall/timer_after_jump
 
+func _ready():
+	position = GlobalVariable.player_data.global_position
 
 func _process(delta):
-	$life.text = str(life)
+	$life.text = str(GlobalVariable.player_data.health)
 	$coord.text = str(coord)
-	
-	
-func dash(sens):
-	if Input.is_action_just_pressed("right_click") and enable_dash and number_dash == 1:
-		dashing = true
-		block_input = "R&L"
-		FRICTION = 0
-		velocity.x = SPEEDDASH * sens
-		number_dash -= 1
-		enable_dash = false
-		$timer_dash.start()
-		$timer_after_dash.start()
-
-
-func hang():
-	if velocity.y < 0 and ((!raycast_right.is_colliding() and raycast_hang_right.is_colliding()) or (!raycast_left.is_colliding() and raycast_hang_left.is_colliding())):
-		velocity.y = 0
-		if Input.is_action_just_pressed("jump"):
-			velocity.y = JUMP_FORCE
-
 
 
 func _physics_process(delta):
 	# Add the gravity
 	apply_gravity(delta)
 	hang()
+	hanging = true
 	dash(looking_at)
 	# Mouvement
 	if block_input == "None":
@@ -99,6 +83,9 @@ func _physics_process(delta):
 	
 	# COLLISION
 	if damage_collision: check_collision()
+	
+	GlobalVariable.player_data.global_position = position
+	coord = position
 
 func check_collision():
 	for index in get_slide_collision_count():
@@ -108,14 +95,13 @@ func check_collision():
 				collision.get_collider().move_and_collide(velocity)
 
 func hit(mob):
-	life -= 10
+	GlobalVariable.player_data.health -= 10
 	velocity.y += 10
 	velocity.x += 60 * mob.direction.x
 	damage_collision = false
 	$no_collision.start()
 
 func apply_gravity(delta):
-	coord = position
 	position.z = 0
 	if not is_on_floor() or dashing:
 		FRICTION = 0.4
@@ -170,7 +156,27 @@ func jump(direction, delta):
 		velocity.y = JUMP_FORCE
 		DOUBLE_JUMP -= 1
 		
-	
+
+func dash(sens):
+	if Input.is_action_just_pressed("right_click") and enable_dash and number_dash == 1:
+		dashing = true
+		block_input = "R&L"
+		FRICTION = 0
+		velocity.x = SPEEDDASH * sens
+		number_dash -= 1
+		enable_dash = false
+		$timer_dash.start()
+		$timer_after_dash.start()
+
+
+func hang():
+	if hanging and velocity.y < 0 and ((!raycast_right.is_colliding() and raycast_hang_right.is_colliding()) or (!raycast_left.is_colliding() and raycast_hang_left.is_colliding())):
+		if $timer_hang.is_stopped():
+			$timer_hang.start()
+		velocity.y = 0
+		if Input.is_action_just_pressed("jump"):
+			velocity.y = JUMP_FORCE
+
 
 func _on_no_collision_timeout():
 	damage_collision = true
@@ -188,3 +194,8 @@ func _on_timer_dash_timeout():
 
 func _on_timer_after_dash_timeout():
 	enable_dash = true
+
+
+func _on_timer_hang_timeout():
+	velocity.y -= 35
+	hanging = false
