@@ -20,6 +20,7 @@ scale = Vector2(0.559896, 0.664815)
 texture = ExtResource("2_vkf8t")
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 364.0
 offset_top = 100.0
 offset_right = 758.0
@@ -30,6 +31,7 @@ text = "Hollow Knight"
 
 [node name="Load 1" type="Button" parent="."]
 texture_filter = 1
+layout_mode = 0
 offset_left = 438.0
 offset_top = 267.0
 offset_right = 641.0
@@ -39,6 +41,7 @@ text = "Load 1"
 
 [node name="Back" type="Button" parent="."]
 texture_filter = 1
+layout_mode = 0
 offset_left = 437.0
 offset_top = 450.0
 offset_right = 640.0

@@ -21,6 +21,7 @@ scale = Vector2(0.559896, 0.664815)
 texture = ExtResource("2_tyn8w")
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 364.0
 offset_top = 100.0
 offset_right = 758.0
@@ -31,6 +32,7 @@ text = "Game Paused"
 
 [node name="Save" type="Button" parent="."]
 texture_filter = 1
+layout_mode = 0
 offset_left = 438.0
 offset_top = 267.0
 offset_right = 641.0
@@ -40,6 +42,7 @@ text = "Save"
 
 [node name="Back" type="Button" parent="."]
 texture_filter = 1
+layout_mode = 0
 offset_left = 437.0
 offset_top = 450.0
 offset_right = 640.0
@@ -49,6 +52,7 @@ text = "Back"
 
 [node name="load" type="Button" parent="."]
 texture_filter = 1
+layout_mode = 0
 offset_left = 439.0
 offset_top = 359.0
 offset_right = 640.0
