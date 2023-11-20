@@ -51,7 +51,6 @@ func _physics_process(delta):
 	# Add the gravity
 	apply_gravity(delta)
 	hang()
-	hanging = true
 	dash(looking_at)
 	# Mouvement
 	if block_input == "None":
@@ -112,6 +111,7 @@ func apply_gravity(delta):
 
 func jump(direction, delta):
 	if is_on_floor():
+		hanging = true
 		climb = false
 		wall_left = true
 		wall_right = true
@@ -133,6 +133,7 @@ func jump(direction, delta):
 		if raycast_right.is_colliding() or raycast_left.is_colliding():
 			velocity.y = -6
 			if Input.is_action_just_pressed("jump") && raycast_right.is_colliding() && enable_wall_jump:
+				hanging = true
 				velocity.y = JUMP_FORCE
 				velocity.x = -18
 				block_input = "Right"
@@ -141,6 +142,7 @@ func jump(direction, delta):
 			
 			
 			if Input.is_action_just_pressed("jump") && raycast_left.is_colliding() && enable_wall_jump:
+				hanging = true
 				velocity.y = JUMP_FORCE
 				velocity.x = 18
 				block_input = "Left"
@@ -161,6 +163,7 @@ func dash(sens):
 	if Input.is_action_just_pressed("right_click") and enable_dash and number_dash == 1:
 		dashing = true
 		block_input = "R&L"
+		velocity.y = 0
 		FRICTION = 0
 		velocity.x = SPEEDDASH * sens
 		number_dash -= 1
@@ -197,5 +200,4 @@ func _on_timer_after_dash_timeout():
 
 
 func _on_timer_hang_timeout():
-	velocity.y -= 35
 	hanging = false
