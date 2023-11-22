@@ -1,26 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://cus0dgndulm1y"]
+[gd_scene load_steps=6 format=3 uid="uid://cus0dgndulm1y"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_tsgtd"]
 [ext_resource type="PackedScene" uid="uid://d2bm014lgmc1a" path="res://fall_particles.tscn" id="2_nh3fq"]
 [ext_resource type="PackedScene" uid="uid://bsscidch3d0id" path="res://trail_dash.tscn" id="3_a8yvf"]
+[ext_resource type="PackedScene" uid="uid://hitinajwebqk" path="res://main_chara.glb" id="4_qk8kx"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_swel3"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w8icm"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_ri4ej"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_dnv85"]
+size = Vector3(1, 2.26621, 0.697528)
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(-0.583541, 0, 0.812084, 0, 1, 0, -0.812084, 0, -0.583541, 0, 0, 0)
 script = ExtResource("1_tsgtd")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.537064, 0, -0.843541, 0, 1, 0, 0.843541, 0, 0.537064, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_swel3")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-0.800062, 0, 0.599918, 0, 1, 0, -0.599918, 0, -0.800062, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_w8icm")
+transform = Transform3D(-0.141523, 0, 0.989936, 0, 1, 0, -0.989936, 0, -0.141523, 0.2, 0.0995604, -4.47035e-08)
+shape = SubResource("BoxShape3D_dnv85")
 
 [node name="life" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29999, 0)
@@ -38,13 +32,6 @@ modulate = Color(0, 0, 0, 1)
 text = "%position%"
 font_size = 64
 
-[node name="Node3D" type="Node3D" parent="."]
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(0, 0.5, 2.18557e-08, 0, -2.18557e-08, 0.5, 0.5, 0, 8.88178e-16, 0.506901, 0.140945, -2.98023e-08)
-mesh = SubResource("CylinderMesh_ri4ej")
-skeleton = NodePath("../..")
-
 [node name="timer_dash" type="Timer" parent="."]
 wait_time = 0.12
 one_shot = true
@@ -60,19 +47,19 @@ wait_time = 0.37
 one_shot = true
 
 [node name="raycast_left" type="RayCast3D" parent="collision_with_wall"]
-transform = Transform3D(-0.0089942, 0.299889, -0.008033, 1.99962, 0.0011951, -0.00575923, -0.0381674, -0.00805736, -0.299837, -0.299858, 0.95, 0.00921904)
-debug_shape_thickness = 4
-
-[node name="raycast_right" type="RayCast3D" parent="collision_with_wall"]
-transform = Transform3D(-8.73815e-08, -0.299858, 0.00921905, 2, -1.31134e-08, 3.99643e-15, 2.68649e-09, 0.00921905, 0.299858, 0.299858, 0.95, -0.00921904)
+transform = Transform3D(-0.0089942, 0.299889, -0.00803301, 1.99962, 0.0011951, -0.00575923, -0.0381674, -0.00805739, -0.299837, -0.1, 0.95, 0)
 debug_shape_thickness = 4
 
 [node name="raycast_hang_left" type="RayCast3D" parent="collision_with_wall"]
-transform = Transform3D(-0.00899493, 0.299889, -0.00803307, 1.99962, 0.00119521, -0.00575923, -0.0381674, -0.00805743, -0.299837, -0.299858, 0.682902, 0.00921904)
+transform = Transform3D(-0.00899493, 0.299889, -0.0080331, 1.99962, 0.00119521, -0.00575923, -0.0381674, -0.0080575, -0.299837, -0.1, 0.682902, 0)
+debug_shape_thickness = 4
+
+[node name="raycast_right" type="RayCast3D" parent="collision_with_wall"]
+transform = Transform3D(-8.73815e-08, -0.299858, 0.00921905, 2, -1.31134e-08, 3.99643e-15, 2.68649e-09, 0.00921905, 0.299858, 0.5, 0.95, -0.00921904)
 debug_shape_thickness = 4
 
 [node name="raycast_hang_right" type="RayCast3D" parent="collision_with_wall"]
-transform = Transform3D(-8.73815e-08, -0.299858, 0.00921905, 2, -1.31134e-08, -5.09107e-16, 2.68652e-09, 0.00921905, 0.299858, 0.299858, 0.682902, -0.00921904)
+transform = Transform3D(-8.73815e-08, -0.299858, 0.00921905, 2, -1.31134e-08, -5.09107e-16, 2.68652e-09, 0.00921905, 0.299858, 0.5, 0.682902, -0.00921904)
 debug_shape_thickness = 4
 
 [node name="on_floor" type="RayCast3D" parent="."]
@@ -88,8 +75,19 @@ transform = Transform3D(1.5, 0, 3.57628e-07, 0, 1.5, 0, -3.57628e-07, 0, 1.5, 0,
 
 [node name="trail" parent="." instance=ExtResource("3_a8yvf")]
 
+[node name="main_chara" parent="." instance=ExtResource("4_qk8kx")]
+transform = Transform3D(0.3, 0, 4.47035e-08, 0, 0.3, 0, -4.47035e-08, 0, 0.3, 0.287731, -1.128, 0.0884694)
+
+[node name="Skeleton3D" parent="main_chara/Armature_002" index="0"]
+bones/0/position = Vector3(1.03251e-10, 1.84976e-09, 0.0819791)
+bones/0/rotation = Quaternion(-0.132058, -0.0100648, -0.148808, 0.979957)
+bones/1/rotation = Quaternion(-0.000784613, 0.0106518, -0.112996, 0.993538)
+bones/2/rotation = Quaternion(0.0100072, -0.0448543, 0.142255, 0.988763)
+
 [connection signal="timeout" from="no_collision" to="." method="_on_no_collision_timeout"]
 [connection signal="timeout" from="timer_dash" to="." method="_on_timer_dash_timeout"]
 [connection signal="timeout" from="timer_after_dash" to="." method="_on_timer_after_dash_timeout"]
 [connection signal="timeout" from="collision_with_wall/timer_after_jump" to="." method="_on_timer_after_jump_timeout"]
 [connection signal="timeout" from="timer_hang" to="." method="_on_timer_hang_timeout"]
+
+[editable path="main_chara"]

@@ -75,10 +75,10 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, FRICTION)
 		
 	if velocity.x > 0:
-		$Node3D.rotation.y = deg_to_rad(0)
+		$main_chara.rotation.y = deg_to_rad(0)
 		looking_at = 1 # 1 = right 
 	elif velocity.x < 0:
-		$Node3D.rotation.y = deg_to_rad(180)
+		$main_chara.rotation.y = deg_to_rad(180)
 		looking_at = -1 # -1 = left
 		
 	# Handle Jump

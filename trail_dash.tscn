@@ -40,8 +40,10 @@ material = SubResource("StandardMaterial3D_ovw76")
 [node name="Node3D" type="Node3D"]
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
 amount = 20
 lifetime = 0.4
+one_shot = true
 explosiveness = 0.9
 process_material = SubResource("ParticleProcessMaterial_y51k5")
 draw_pass_1 = SubResource("QuadMesh_44sch")
