@@ -98,6 +98,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4761, 9.42419, -0.926162)
 [node name="Cube3" parent="obstacles" instance=ExtResource("4_g414b")]
 transform = Transform3D(1, 0, 0, 0, 10.5997, 0, 0, 0, 3.92931, -11.6562, 1, -0.0836673)
 
+[node name="Cube17" parent="obstacles" instance=ExtResource("4_g414b")]
+transform = Transform3D(19.4921, 0, 0, 0, 1.50041, 0, 0, 0, 5.63062, -45.6957, 8, -0.0836673)
+
 [node name="Cube11" parent="obstacles" instance=ExtResource("4_g414b")]
 transform = Transform3D(1, 0, 0, 0, 10.5997, 0, 0, 0, 3.92931, -4.88085, 23.4843, -0.0836673)
 

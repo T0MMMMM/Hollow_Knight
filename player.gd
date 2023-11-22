@@ -95,10 +95,12 @@ func _physics_process(delta):
 
 func check_collision():
 	for index in get_slide_collision_count():
-			var collision = get_slide_collision(index)
-			if collision.get_collider().is_in_group("enemy"):# || collision.get_collider().is_in_group("tears"):
-				hit(collision.get_collider())
-				collision.get_collider().move_and_collide(velocity)
+		var collision = get_slide_collision(index)
+		if collision.get_collider().is_in_group("enemy"):# || collision.get_collider().is_in_group("tears"):
+			hit(collision.get_collider())
+			collision.get_collider().move_and_collide(velocity)
+
+
 
 func hit(mob):
 	GlobalVariable.player_data.health -= 10
@@ -107,14 +109,19 @@ func hit(mob):
 	damage_collision = false
 	$no_collision.start()
 
+
+
+
 func apply_gravity(delta):
 	position.z = 0
-	if not is_on_floor() or dashing:
-		FRICTION = 0.4
+	if not is_on_floor():
 		velocity.y -= gravity * delta
 		velocity.y = min(velocity.y, 250)
-	else:
+	elif !dashing:
 		FRICTION = 100
+
+
+
 
 func jump(direction, delta):
 	if is_on_floor():
@@ -134,11 +141,13 @@ func jump(direction, delta):
 		climb = true
 		
 		
-	
 	# Handle Wall Jump / climb
 	if climb: 
 		if raycast_right.is_colliding() or raycast_left.is_colliding():
 			velocity.y = -6
+			update_friction = true
+			if !(hanging and velocity.y < 0 and ((!raycast_right.is_colliding() and raycast_hang_right.is_colliding()) or (!raycast_left.is_colliding() and raycast_hang_left.is_colliding()))):
+				FRICTION = 0.3
 			if Input.is_action_just_pressed("jump") && raycast_right.is_colliding() && enable_wall_jump:
 				hanging = true
 				velocity.y = JUMP_FORCE
@@ -164,18 +173,16 @@ func jump(direction, delta):
 	if Input.is_action_just_pressed("jump") && DOUBLE_JUMP > 0 && !raycast_left.is_colliding() && !raycast_right.is_colliding():
 		velocity.y = JUMP_FORCE
 		DOUBLE_JUMP -= 1
-		
+
 
 func dash(sens):
 	if Input.is_action_just_pressed("right_click") and enable_dash and number_dash == 1:
 		dashing = true
-		
+		FRICTION = 0
 		$trail.get_node("GPUParticles3D").restart()
-		$trail.get_node("GPUParticles3D").set_emitting(true)
-		
+		$trail.get_node("GPUParticles3D").set_emitting(true)	
 		block_input = "R&L"
 		velocity.y = 0
-		FRICTION = 0
 		velocity.x = SPEEDDASH * sens
 		number_dash -= 1
 		enable_dash = false
@@ -185,6 +192,7 @@ func dash(sens):
 
 func hang():
 	if hanging and velocity.y < 0 and ((!raycast_right.is_colliding() and raycast_hang_right.is_colliding()) or (!raycast_left.is_colliding() and raycast_hang_left.is_colliding())):
+		
 		if $timer_hang.is_stopped():
 			$timer_hang.start()
 		velocity.y = 0
