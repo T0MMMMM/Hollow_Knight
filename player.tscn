@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cus0dgndulm1y"]
+[gd_scene load_steps=6 format=3 uid="uid://cus0dgndulm1y"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_tsgtd"]
+[ext_resource type="PackedScene" uid="uid://d2bm014lgmc1a" path="res://fall_particles.tscn" id="2_nh3fq"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_swel3"]
 
@@ -73,9 +74,16 @@ debug_shape_thickness = 4
 transform = Transform3D(-8.73815e-08, -0.299858, 0.00921905, 2, -1.31134e-08, -5.09107e-16, 2.68652e-09, 0.00921905, 0.299858, 0.299858, 0.682902, -0.00921904)
 debug_shape_thickness = 4
 
+[node name="on_floor" type="RayCast3D" parent="."]
+transform = Transform3D(-4.76837e-07, 0, 0.3, 0, 0.3, 0, -2.00001, 0, -8.9407e-08, 0, -1.02035, 0)
+debug_shape_thickness = 4
+
 [node name="timer_hang" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="fall_particles" parent="." instance=ExtResource("2_nh3fq")]
+transform = Transform3D(1.5, 0, 3.57628e-07, 0, 1.5, 0, -3.57628e-07, 0, 1.5, 0, -0.680006, 0)
 
 [connection signal="timeout" from="no_collision" to="." method="_on_no_collision_timeout"]
 [connection signal="timeout" from="timer_dash" to="." method="_on_timer_dash_timeout"]

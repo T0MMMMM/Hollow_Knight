@@ -22,6 +22,7 @@ var dash_enable = true
 var wall_left = false
 var wall_right = false
 var wall_jump = false
+var last_velocity = velocity
 
 var enable_wall_jump = false
 var enable_dash = false
@@ -36,6 +37,8 @@ var number_dash = 1
 @onready var raycast_right = $collision_with_wall/raycast_right
 @onready var raycast_hang_left = $collision_with_wall/raycast_hang_left
 @onready var raycast_hang_right = $collision_with_wall/raycast_hang_right
+
+@onready var fall_particles = $fall_particles
 
 @onready var timer_after_jump = $collision_with_wall/timer_after_jump
 
@@ -52,6 +55,8 @@ func _physics_process(delta):
 	apply_gravity(delta)
 	hang()
 	dash(looking_at)
+	just_fall()
+	
 	# Mouvement
 	if block_input == "None":
 		input_dir = Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
@@ -79,6 +84,7 @@ func _physics_process(delta):
 	jump(direction, delta)
 	
 	move_and_slide()
+	last_velocity = velocity
 	
 	# COLLISION
 	if damage_collision: check_collision()
@@ -201,3 +207,11 @@ func _on_timer_after_dash_timeout():
 
 func _on_timer_hang_timeout():
 	hanging = false
+	
+func just_fall():
+	if $on_floor.is_colliding() && !is_on_floor() && velocity.y < 0:
+		$fall_particles.get_node("GPUParticles3D").emitting = true
+		
+		
+	
+	

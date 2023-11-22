@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcc4ph1lcj687"]
+
+[ext_resource type="PackedScene" uid="uid://hitinajwebqk" path="res://main_chara.glb" id="1_dchlr"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="main_chara" parent="." instance=ExtResource("1_dchlr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="Skeleton3D" parent="main_chara/Armature_002" index="0"]
+bones/0/position = Vector3(1.03251e-10, 1.84976e-09, 0.0819791)
+bones/0/rotation = Quaternion(-0.132058, -0.0100648, -0.148808, 0.979957)
+bones/1/rotation = Quaternion(-0.000784613, 0.0106518, -0.112996, 0.993538)
+bones/2/rotation = Quaternion(0.0100072, -0.0448543, 0.142255, 0.988763)
+
+[editable path="main_chara"]
