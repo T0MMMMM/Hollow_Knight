@@ -170,7 +170,6 @@ func dash(sens):
 	if Input.is_action_just_pressed("right_click") and enable_dash and number_dash == 1:
 		dashing = true
 		
-		$trail.get_node("GPUParticles3D").process_material.set("direction", Vector3(-sens, 0, 0))
 		$trail.get_node("GPUParticles3D").restart()
 		$trail.get_node("GPUParticles3D").set_emitting(true)
 		
