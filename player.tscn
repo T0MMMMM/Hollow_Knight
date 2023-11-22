@@ -74,7 +74,7 @@ transform = Transform3D(-8.73815e-08, -0.299858, 0.00921905, 2, -1.31134e-08, -5
 debug_shape_thickness = 4
 
 [node name="timer_hang" type="Timer" parent="."]
-wait_time = 2308.37
+wait_time = 5.0
 one_shot = true
 
 [connection signal="timeout" from="no_collision" to="." method="_on_no_collision_timeout"]
