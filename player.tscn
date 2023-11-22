@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cus0dgndulm1y"]
+[gd_scene load_steps=7 format=3 uid="uid://cus0dgndulm1y"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_tsgtd"]
 [ext_resource type="PackedScene" uid="uid://d2bm014lgmc1a" path="res://fall_particles.tscn" id="2_nh3fq"]
+[ext_resource type="PackedScene" uid="uid://bsscidch3d0id" path="res://trail_dash.tscn" id="3_a8yvf"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_swel3"]
 
@@ -84,6 +85,8 @@ one_shot = true
 
 [node name="fall_particles" parent="." instance=ExtResource("2_nh3fq")]
 transform = Transform3D(1.5, 0, 3.57628e-07, 0, 1.5, 0, -3.57628e-07, 0, 1.5, 0, -0.680006, 0)
+
+[node name="trail" parent="." instance=ExtResource("3_a8yvf")]
 
 [connection signal="timeout" from="no_collision" to="." method="_on_no_collision_timeout"]
 [connection signal="timeout" from="timer_dash" to="." method="_on_timer_dash_timeout"]

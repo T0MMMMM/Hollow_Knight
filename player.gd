@@ -39,6 +39,7 @@ var number_dash = 1
 @onready var raycast_hang_right = $collision_with_wall/raycast_hang_right
 
 @onready var fall_particles = $fall_particles
+@onready var trail_dash = $trail
 
 @onready var timer_after_jump = $collision_with_wall/timer_after_jump
 
@@ -168,6 +169,11 @@ func jump(direction, delta):
 func dash(sens):
 	if Input.is_action_just_pressed("right_click") and enable_dash and number_dash == 1:
 		dashing = true
+		
+		$trail.get_node("GPUParticles3D").process_material.set("direction", Vector3(-sens, 0, 0))
+		$trail.get_node("GPUParticles3D").restart()
+		$trail.get_node("GPUParticles3D").set_emitting(true)
+		
 		block_input = "R&L"
 		velocity.y = 0
 		FRICTION = 0
@@ -209,8 +215,9 @@ func _on_timer_hang_timeout():
 	hanging = false
 	
 func just_fall():
-	if $on_floor.is_colliding() && !is_on_floor() && velocity.y < 0:
-		$fall_particles.get_node("GPUParticles3D").emitting = true
+	if $on_floor.is_colliding() && !is_on_floor() && velocity.y < 0 && $fall_particles.get_node("GPUParticles3D").emitting == false:
+		$fall_particles.get_node("GPUParticles3D").restart()
+		$fall_particles.get_node("GPUParticles3D").set_emitting(true)
 		
 		
 	
