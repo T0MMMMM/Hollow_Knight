@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvcnjnkqiga87"]
+
+[ext_resource type="Shader" uid="uid://8d0wk3ivayx5" path="res://flare_test.tres" id="1_2v2mr"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_10r2y"]
+emission_shape = 3
+emission_box_extents = Vector3(0.3, 1, 0.5)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 3.0
+sub_emitter_mode = 1
+sub_emitter_frequency = 50.0
+sub_emitter_keep_velocity = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bndk8"]
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_byo6g"]
+shader = ExtResource("1_2v2mr")
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_u5yj6"]
+material = SubResource("ShaderMaterial_byo6g")
+shape = 0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 10
+sub_emitter = NodePath("../GPUParticles3D2")
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.9
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_10r2y")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 70
+lifetime = 0.4
+fixed_fps = 60
+trail_enabled = true
+trail_lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_bndk8")
+draw_pass_1 = SubResource("RibbonTrailMesh_u5yj6")
