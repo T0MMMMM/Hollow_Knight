@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://diaj6ujcjrw8m"
+path="res://.godot/imported/Arbre_plateforme_1.obj-fe7cac7796b7916276f8d6ed1d90ed0e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Arbre_plateforme_1.obj-fe7cac7796b7916276f8d6ed1d90ed0e.mesh"]
+
+source_file="res://Arbre_plateforme_1.obj"
+dest_files=["res://.godot/imported/Arbre_plateforme_1.obj-fe7cac7796b7916276f8d6ed1d90ed0e.mesh", "res://.godot/imported/Arbre_plateforme_1.obj-fe7cac7796b7916276f8d6ed1d90ed0e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -7,7 +7,7 @@ const JUMP_RELEASED_FORCE = 8.0
 const JUMP_FORCE = 22.0
 @export var INT_DOUBLE_JUMP = 0
 var DOUBLE_JUMP = INT_DOUBLE_JUMP
-var FRICTION = 100
+var FRICTION = 1000
 var SPEEDDASH = 70
 
 var climb = true
@@ -113,12 +113,11 @@ func hit(mob):
 
 
 func apply_gravity(delta):
-	position.z = 0
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		velocity.y = min(velocity.y, 250)
 	elif !dashing:
-		FRICTION = 100
+		FRICTION = 1000
 
 
 
@@ -148,6 +147,8 @@ func jump(direction, delta):
 			update_friction = true
 			if !(hanging and velocity.y < 0 and ((!raycast_right.is_colliding() and raycast_hang_right.is_colliding()) or (!raycast_left.is_colliding() and raycast_hang_left.is_colliding()))):
 				FRICTION = 0.3
+				
+				
 			if Input.is_action_just_pressed("jump") && raycast_right.is_colliding() && enable_wall_jump:
 				hanging = true
 				velocity.y = JUMP_FORCE

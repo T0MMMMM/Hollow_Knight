@@ -13,7 +13,7 @@ transform = Transform3D(-0.583541, 0, 0.812084, 0, 1, 0, -0.812084, 0, -0.583541
 script = ExtResource("1_tsgtd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-0.141523, 0, 0.989936, 0, 1, 0, -0.989936, 0, -0.141523, 0.2, 0.0995604, -4.47035e-08)
+transform = Transform3D(-0.141523, 0, 0.989936, 0, 1, 0, -0.989936, 0, -0.141523, 0.2, 0.0995604, -5.96046e-08)
 shape = SubResource("BoxShape3D_dnv85")
 
 [node name="life" type="Label3D" parent="."]
@@ -47,19 +47,19 @@ wait_time = 0.32
 one_shot = true
 
 [node name="raycast_left" type="RayCast3D" parent="collision_with_wall"]
-transform = Transform3D(-0.0089942, 0.299889, -0.00803301, 1.99962, 0.0011951, -0.00575923, -0.0381674, -0.00805748, -0.299837, -0.164504, 0.95, 0.0132784)
+transform = Transform3D(-0.00899424, 0.299889, -0.00803314, 1.99962, 0.0011951, -0.00575922, -0.0381674, -0.00805749, -0.299837, -0.164504, 0.95, 0.0132784)
 debug_shape_thickness = 4
 
 [node name="raycast_hang_left" type="RayCast3D" parent="collision_with_wall"]
-transform = Transform3D(-0.00899493, 0.299889, -0.0080331, 1.99962, 0.00119521, -0.00575923, -0.0381674, -0.00805756, -0.299837, -0.164504, 0.682902, 0.0132784)
+transform = Transform3D(-0.00899496, 0.299889, -0.00803321, 1.99962, 0.0011952, -0.00575922, -0.0381674, -0.00805756, -0.299837, -0.164504, 0.682902, 0.0132784)
 debug_shape_thickness = 4
 
 [node name="raycast_right" type="RayCast3D" parent="collision_with_wall"]
-transform = Transform3D(-8.73815e-08, -0.299858, 0.00921905, 2, -1.31134e-08, 3.99643e-15, 2.68652e-09, 0.00921905, 0.299858, 0.55431, 0.95, 0.0225601)
+transform = Transform3D(-8.74228e-08, -0.3, 0, 2, -1.31134e-08, 6.65761e-16, -4.43841e-15, 2.91013e-23, 0.3, 0.55431, 0.95, 0.0225601)
 debug_shape_thickness = 4
 
 [node name="raycast_hang_right" type="RayCast3D" parent="collision_with_wall"]
-transform = Transform3D(-8.73815e-08, -0.299858, 0.00921905, 2, -1.31134e-08, -5.09107e-16, 2.68653e-09, 0.00921905, 0.299858, 0.55431, 0.682902, 0.0225601)
+transform = Transform3D(-8.74228e-08, -0.3, 0, 2, -1.31134e-08, -1.56382e-15, 1.04255e-14, -6.83567e-23, 0.3, 0.55431, 0.682902, 0.0225601)
 debug_shape_thickness = 4
 
 [node name="on_floor" type="RayCast3D" parent="."]
