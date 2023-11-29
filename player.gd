@@ -34,7 +34,7 @@ var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normali
 var hanging = true
 
 var dashing = false
-var looking_at = "right"
+var looking_at = 1
 var number_dash = 1
 @onready var raycast_left = $collision_with_wall/raycast_left
 @onready var raycast_right = $collision_with_wall/raycast_right
@@ -151,7 +151,6 @@ func jump(direction, delta):
 	if velocity.y < 0:
 		climb = true
 		
-		
 	# Handle Wall Jump / climb
 	if climb: 
 		if raycast_right.is_colliding() or raycast_left.is_colliding():
@@ -210,7 +209,7 @@ func dash(sens):
 
 
 func hang():
-	if hanging and velocity.y < 0 and ((!raycast_right.is_colliding() and raycast_hang_right.is_colliding()) or (!raycast_left.is_colliding() and raycast_hang_left.is_colliding())):
+	if hanging and velocity.y < 0 and ((!raycast_right.is_colliding() and raycast_hang_right.is_colliding() and looking_at == 1) or (!raycast_left.is_colliding() and raycast_hang_left.is_colliding() and looking_at == -1)):
 		if $timer_hang.is_stopped():
 			$timer_hang.start()
 		velocity.y = 0

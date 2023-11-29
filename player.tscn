@@ -16,14 +16,14 @@ script = ExtResource("1_tsgtd")
 transform = Transform3D(-0.141523, 0, 0.989936, 0, 1, 0, -0.989936, 0, -0.141523, 0.2, 0.0995604, -5.96046e-08)
 shape = SubResource("BoxShape3D_dnv85")
 
+[node name="no_collision" type="Timer" parent="."]
+wait_time = 0.7
+
 [node name="life" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29999, 0)
+transform = Transform3D(1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, 0, 1.29999, 0)
 modulate = Color(0, 0, 0, 1)
 text = "%life%"
 font_size = 80
-
-[node name="no_collision" type="Timer" parent="."]
-wait_time = 0.7
 
 [node name="coord" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 1.75794, 0)
@@ -74,6 +74,7 @@ one_shot = true
 transform = Transform3D(1.5, 0, 3.57628e-07, 0, 1.5, 0, -3.57628e-07, 0, 1.5, 0, -0.680006, 0)
 
 [node name="trail" parent="." instance=ExtResource("3_a8yvf")]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 0, 0)
 
 [node name="main_chara" parent="." instance=ExtResource("5_1dpri")]
 transform = Transform3D(0.3, 0, 1.78814e-08, 0, 0.3, 0, -1.78814e-08, 0, 0.3, 0.288, -1.128, 0.088)

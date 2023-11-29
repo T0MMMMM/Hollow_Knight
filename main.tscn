@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://crrr7ec365ca4"]
+[gd_scene load_steps=22 format=3 uid="uid://crrr7ec365ca4"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_dnbop"]
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_spt7l"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dle2a1pwm6k6s" path="res://Background_test.jpeg" id="10_7dwia"]
 [ext_resource type="PackedScene" uid="uid://b3ehpfvucgt4y" path="res://paused.tscn" id="10_qny8y"]
 [ext_resource type="PackedScene" uid="uid://cbblitqcspca0" path="res://invisiblewall.tscn" id="13_ba4nc"]
+[ext_resource type="PackedScene" uid="uid://cmvfdb1sw7ubx" path="res://tree.tscn" id="13_s7065"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0jsrj"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -225,6 +226,54 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 1.2)
 
 [node name="Node3D7" parent="." instance=ExtResource("13_ba4nc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -1, -1.2)
+
+[node name="tree" parent="." instance=ExtResource("13_s7065")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.462, -9.31329, -84.3904)
+
+[node name="tree" parent="tree" instance=ExtResource("13_s7065")]
+transform = Transform3D(0.46759, 0, -0.883945, 0, 1, 0, 0.883945, 0, 0.46759, 80.5045, -9.31329, -84.3904)
+
+[node name="tree2" parent="tree" instance=ExtResource("13_s7065")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.462, -9.31329, -84.3904)
+
+[node name="tree3" parent="." instance=ExtResource("13_s7065")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.462, -9.31329, -293.134)
+
+[node name="tree" parent="tree3" instance=ExtResource("13_s7065")]
+transform = Transform3D(0.46759, 0, -0.883945, 0, 1, 0, 0.883945, 0, 0.46759, 80.5045, -9.31329, -84.3904)
+
+[node name="tree2" parent="tree3" instance=ExtResource("13_s7065")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.462, -9.31329, -84.3904)
+
+[node name="tree2" parent="." instance=ExtResource("13_s7065")]
+transform = Transform3D(0.307157, 0, -0.951659, 0, 1, 0, 0.951659, 0, 0.307157, 72.4582, -9.31329, -85.8131)
+
+[node name="tree" parent="tree2" instance=ExtResource("13_s7065")]
+transform = Transform3D(0.46759, 0, -0.883945, 0, 1, 0, 0.883945, 0, 0.46759, 80.5045, -9.31329, -84.3904)
+
+[node name="tree2" parent="tree2" instance=ExtResource("13_s7065")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.462, -9.31329, -84.3904)
+
+[node name="tree3" parent="tree2" instance=ExtResource("13_s7065")]
+transform = Transform3D(0.467591, 0, -0.883945, 0, 1, 0, 0.883945, 0, 0.467591, -12.929, -9.31329, -114.547)
+
+[node name="tree4" parent="tree2" instance=ExtResource("13_s7065")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.895, -9.31329, -114.547)
+
+[node name="tree5" parent="tree2" instance=ExtResource("13_s7065")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.896, -9.31329, -323.29)
+
+[node name="tree" parent="tree2/tree5" instance=ExtResource("13_s7065")]
+transform = Transform3D(0.46759, 0, -0.883945, 0, 1, 0, 0.883945, 0, 0.46759, 80.5045, -9.31329, -84.3904)
+
+[node name="tree2" parent="tree2/tree5" instance=ExtResource("13_s7065")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.462, -9.31329, -84.3904)
+
+[node name="tree6" parent="tree2" instance=ExtResource("13_s7065")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.895, -9.31329, -114.547)
+
+[node name="tree4" parent="." instance=ExtResource("13_s7065")]
+transform = Transform3D(0.999361, 0, -0.0357542, 0, 1, 0, 0.0357542, 0, 0.999361, 233.996, -9.31329, -228.181)
 
 [editable path="obstacles/Cube18"]
 [editable path="obstacles/Cube6"]
