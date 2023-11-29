@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://crrr7ec365ca4"]
+[gd_scene load_steps=26 format=3 uid="uid://crrr7ec365ca4"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_dnbop"]
 [ext_resource type="Script" path="res://Camera3D.gd" id="1_spt7l"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cmvfdb1sw7ubx" path="res://tree.tscn" id="13_s7065"]
 [ext_resource type="Texture2D" uid="uid://cls2qkftvtlm1" path="res://assets/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA(1).png" id="14_kketo"]
 [ext_resource type="PackedScene" uid="uid://boj6gnxkiwyq8" path="res://test_fefeafafeafafafafafafafaf3.glb" id="14_uktbl"]
+[ext_resource type="PackedScene" uid="uid://cc3cpsxcnhqby" path="res://text_box.tscn" id="15_wsrpj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0jsrj"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -297,6 +298,8 @@ shape = SubResource("ConcavePolygonShape3D_35g2p")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 56.3528, 0, -629.516)
 texture = ExtResource("14_kketo")
+
+[node name="text_box" parent="." instance=ExtResource("15_wsrpj")]
 
 [editable path="obstacles/Cube6"]
 [editable path="obstacles/Cube7"]

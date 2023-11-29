@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc3cpsxcnhqby"]
+
+[ext_resource type="Script" path="res://text_box.gd" id="1_gcewt"]
+[ext_resource type="FontFile" uid="uid://ydgjgk7jtq5b" path="res://MinimalPixelFont.ttf" id="1_h5c65"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxwmr"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(1, 1, 1, 1)
+
+[node name="text_box" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_gcewt")
+
+[node name="text_box_container" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -223.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="text_box_container"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jxwmr")
+
+[node name="MarginContainer" type="MarginContainer" parent="text_box_container"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Panel" type="Panel" parent="text_box_container/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="text_box_container/MarginContainer"]
+layout_mode = 2
+
+[node name="start_symbol" type="Label" parent="text_box_container/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_h5c65")
+theme_override_font_sizes/font_size = 60
+text = "*"
+
+[node name="text" type="Label" parent="text_box_container/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_h5c65")
+theme_override_font_sizes/font_size = 60
+text = " / PLACEHOLDER / "
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="end_symbol" type="Label" parent="text_box_container/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_h5c65")
+theme_override_font_sizes/font_size = 60
+text = "_"
+
+[node name="timer_char" type="Timer" parent="."]
+process_mode = 2
+wait_time = 0.05
+one_shot = true
+
+[node name="timer_end_symbol" type="Timer" parent="."]
+process_mode = 2
+wait_time = 2.5
+
+[connection signal="timeout" from="timer_char" to="." method="_on_timer_char_timeout"]
+[connection signal="timeout" from="timer_end_symbol" to="." method="_on_timer_end_symbol_timeout"]
