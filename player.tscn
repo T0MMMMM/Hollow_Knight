@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://player.gd" id="1_tsgtd"]
 [ext_resource type="PackedScene" uid="uid://d2bm014lgmc1a" path="res://fall_particles.tscn" id="2_nh3fq"]
 [ext_resource type="PackedScene" uid="uid://bsscidch3d0id" path="res://trail_dash.tscn" id="3_a8yvf"]
-[ext_resource type="PackedScene" uid="uid://hitinajwebqk" path="res://main_chara.glb" id="4_qk8kx"]
+[ext_resource type="PackedScene" uid="uid://bwqwpg7gwh4df" path="res://main_chara2.glb" id="5_1dpri"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dnv85"]
 size = Vector3(1, 2.26621, 0.697528)
@@ -26,7 +26,7 @@ font_size = 80
 wait_time = 0.7
 
 [node name="coord" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75794, 0)
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 1.75794, 0)
 pixel_size = 0.01
 modulate = Color(0, 0, 0, 1)
 text = "%position%"
@@ -75,14 +75,14 @@ transform = Transform3D(1.5, 0, 3.57628e-07, 0, 1.5, 0, -3.57628e-07, 0, 1.5, 0,
 
 [node name="trail" parent="." instance=ExtResource("3_a8yvf")]
 
-[node name="main_chara" parent="." instance=ExtResource("4_qk8kx")]
-transform = Transform3D(0.3, 0, 4.47035e-08, 0, 0.3, 0, -4.47035e-08, 0, 0.3, 0.287731, -1.128, 0.0884694)
+[node name="main_chara" parent="." instance=ExtResource("5_1dpri")]
+transform = Transform3D(0.3, 0, 1.78814e-08, 0, 0.3, 0, -1.78814e-08, 0, 0.3, 0.288, -1.128, 0.088)
 
-[node name="Skeleton3D" parent="main_chara/Armature_002" index="0"]
-bones/0/position = Vector3(1.03251e-10, 1.84976e-09, 0.0819791)
-bones/0/rotation = Quaternion(-0.132058, -0.0100648, -0.148808, 0.979957)
-bones/1/rotation = Quaternion(-0.000784613, 0.0106518, -0.112996, 0.993538)
-bones/2/rotation = Quaternion(0.0100072, -0.0448543, 0.142255, 0.988763)
+[node name="Skeleton3D" parent="main_chara/Armature_004" index="0"]
+bones/2/rotation = Quaternion(-0.0925695, 3.45653e-15, -2.20703e-08, 0.995706)
+bones/3/rotation = Quaternion(0.120528, -0.0253604, 0.204334, 0.971122)
+bones/6/rotation = Quaternion(0.0925694, -5.46355e-15, 2.20703e-08, 0.995706)
+bones/7/rotation = Quaternion(-0.120623, 0.0249093, 0.200699, 0.971879)
 
 [connection signal="timeout" from="no_collision" to="." method="_on_no_collision_timeout"]
 [connection signal="timeout" from="timer_dash" to="." method="_on_timer_dash_timeout"]

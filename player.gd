@@ -28,6 +28,9 @@ var enable_wall_jump = false
 var enable_dash = false
 var update_friction = false
 
+var changeFriction = false
+var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
 var hanging = true
 
 var dashing = false
@@ -56,6 +59,7 @@ func _physics_process(delta):
 	apply_gravity(delta)
 	hang()
 	dash(looking_at)
+	attack(looking_at)
 	just_fall()
 	
 	# Mouvement
@@ -68,12 +72,15 @@ func _physics_process(delta):
 	if block_input == "R&L":
 		input_dir = Input.get_vector("none", "none", "ui_up", "ui_down")
 		
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction.x:
 		velocity.x = move_toward(velocity.x, SPEED * direction.x , 10)
 	else:
 		velocity.x = move_toward(velocity.x, 0, FRICTION)
-		
+	
+	if velocity.x == 0:
+		$main_chara/AnimationPlayer.play("Armature_004Action_001")
+	
 	if velocity.x > 0:
 		$main_chara.rotation.y = deg_to_rad(0)
 		looking_at = 1 # 1 = right 
@@ -116,6 +123,10 @@ func apply_gravity(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		velocity.y = min(velocity.y, 250)
+		if changeFriction and direction.x != 0:
+			FRICTION = 1000
+			changeFriction = false
+			
 	elif !dashing:
 		FRICTION = 1000
 
@@ -129,6 +140,7 @@ func jump(direction, delta):
 		wall_left = true
 		wall_right = true
 		wall_jump = false
+		changeFriction = false
 		if enable_dash:
 			number_dash = 1
 		DOUBLE_JUMP = INT_DOUBLE_JUMP
@@ -174,6 +186,12 @@ func jump(direction, delta):
 	if Input.is_action_just_pressed("jump") && DOUBLE_JUMP > 0 && !raycast_left.is_colliding() && !raycast_right.is_colliding():
 		velocity.y = JUMP_FORCE
 		DOUBLE_JUMP -= 1
+		
+		
+
+func attack(sens):
+	if Input.is_action_just_pressed("attack"):
+		print("attack")
 
 
 func dash(sens):
@@ -193,7 +211,6 @@ func dash(sens):
 
 func hang():
 	if hanging and velocity.y < 0 and ((!raycast_right.is_colliding() and raycast_hang_right.is_colliding()) or (!raycast_left.is_colliding() and raycast_hang_left.is_colliding())):
-		
 		if $timer_hang.is_stopped():
 			$timer_hang.start()
 		velocity.y = 0
@@ -207,6 +224,7 @@ func _on_no_collision_timeout():
 
 func _on_timer_after_jump_timeout():
 	block_input = "None"
+	changeFriction = true
 
 
 func _on_timer_dash_timeout():
