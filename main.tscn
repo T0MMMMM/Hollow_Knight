@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b3ehpfvucgt4y" path="res://paused.tscn" id="10_qny8y"]
 [ext_resource type="PackedScene" uid="uid://cbblitqcspca0" path="res://invisiblewall.tscn" id="13_ba4nc"]
 [ext_resource type="PackedScene" uid="uid://cmvfdb1sw7ubx" path="res://tree.tscn" id="13_s7065"]
-[ext_resource type="Texture2D" uid="uid://cls2qkftvtlm1" path="res://assets/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA(1).png" id="14_kketo"]
+[ext_resource type="Texture2D" uid="uid://covkgrq2anxty" path="res://assets/AAAA.png" id="14_a5jto"]
 [ext_resource type="PackedScene" uid="uid://boj6gnxkiwyq8" path="res://test_fefeafafeafafafafafafafaf3.glb" id="14_uktbl"]
 [ext_resource type="PackedScene" uid="uid://cc3cpsxcnhqby" path="res://text_box.tscn" id="15_wsrpj"]
 
@@ -296,8 +296,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_qk7x1")
 shape = SubResource("ConcavePolygonShape3D_35g2p")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 56.3528, 0, -629.516)
-texture = ExtResource("14_kketo")
+transform = Transform3D(40, 0, 0, 0, 25, 0, 0, 0, 25, 56.3528, 102.612, -629.516)
+texture = ExtResource("14_a5jto")
 
 [node name="text_box" parent="." instance=ExtResource("15_wsrpj")]
 
