@@ -85,7 +85,7 @@ shadow_enabled = true
 environment = SubResource("Environment_v3s0t")
 
 [node name="Player" parent="." instance=ExtResource("2_uq2r6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.285968, 2.299, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.223, 2.299, 0)
 
 [node name="enemy" parent="." groups=["enemy"] instance=ExtResource("3_miybh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.2663, 3.00654, 0)
@@ -93,7 +93,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.2663, 3.00654, 0)
 [node name="obstacles" type="Node3D" parent="."]
 
 [node name="Cube2" parent="obstacles" instance=ExtResource("4_g414b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6623, 1.44982, -0.926162)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6623, 1.44982, -0.541188)
 
 [node name="Cube14" parent="obstacles" instance=ExtResource("4_g414b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0367, 1.44982, -0.926162)
@@ -144,14 +144,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1547, 32.2991, -1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, -1.83719)
 material_override = SubResource("StandardMaterial3D_7lpw0")
 
-[node name="Cube10" parent="obstacles" instance=ExtResource("4_g414b")]
-transform = Transform3D(108.875, 0, 0, 0, 17.4871, 0, 0, 0, 1, -19.4734, -9.27954, 2.16803)
-visible = false
-
-[node name="MeshInstance3D" parent="obstacles/Cube10" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, 0.192273, 0, -3.79733)
-material_override = SubResource("StandardMaterial3D_7lpw0")
-
 [node name="Cube8" parent="obstacles" instance=ExtResource("4_g414b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18257, 41.5441, -1)
 
@@ -191,10 +183,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.4278, 165.247, -117.442)
 script = SubResource("GDScript_h2f0b")
 
 [node name="item" parent="." instance=ExtResource("7_0hpbr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.94564, 0.441804, -0.105121)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.94564, -4.79947, -0.105121)
 
 [node name="item2" parent="." instance=ExtResource("7_0hpbr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6661, 4.73974, -0.105121)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6661, -0.501533, -0.105121)
 TYPE = "add_dash"
 
 [node name="CollisionShape3D" parent="item2" index="0"]
@@ -210,7 +202,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.26126, -4.29794, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.26126, -4.29794, 0)
 
 [node name="item3" parent="." instance=ExtResource("7_0hpbr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9776, 5.93421, -0.105121)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9776, 0.692937, -0.105121)
 TYPE = "add_wall_jump"
 
 [node name="CollisionShape3D" parent="item3" index="0"]
@@ -365,7 +357,6 @@ texture = ExtResource("14_a5jto")
 [editable path="obstacles/Cube15"]
 [editable path="obstacles/Cube16"]
 [editable path="obstacles/Cube7"]
-[editable path="obstacles/Cube10"]
 [editable path="obstacles/Cube8"]
 [editable path="obstacles/Cube9"]
 [editable path="item2"]

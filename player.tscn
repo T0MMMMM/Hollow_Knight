@@ -5,16 +5,16 @@
 [ext_resource type="PackedScene" uid="uid://bsscidch3d0id" path="res://trail_dash.tscn" id="3_a8yvf"]
 [ext_resource type="PackedScene" uid="uid://bwqwpg7gwh4df" path="res://main_chara2.glb" id="5_1dpri"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dnv85"]
-size = Vector3(1, 2.26621, 0.697528)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_spsqd"]
+height = 2.45955
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(-0.583541, 0, 0.812084, 0, 1, 0, -0.812084, 0, -0.583541, 0, 0, 0)
 script = ExtResource("1_tsgtd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-0.141523, 0, 0.989936, 0, 1, 0, -0.989936, 0, -0.141523, 0.2, 0.0995604, -5.96046e-08)
-shape = SubResource("BoxShape3D_dnv85")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.0995604, -5.96046e-08)
+shape = SubResource("CapsuleShape3D_spsqd")
 
 [node name="no_collision" type="Timer" parent="."]
 wait_time = 0.7
