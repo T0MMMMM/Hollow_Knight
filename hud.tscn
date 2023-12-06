@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://iuxbfwfngwps"]
+
+[ext_resource type="Texture2D" uid="uid://qocwtqxxdrkl" path="res://masques.png" id="1_074ty"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="life" type="Sprite2D" parent="Control"]
+position = Vector2(50, 51)
+scale = Vector2(0.530612, 0.530612)
+texture = ExtResource("1_074ty")
+region_enabled = true
+region_rect = Rect2(27, 44, 98, 117)

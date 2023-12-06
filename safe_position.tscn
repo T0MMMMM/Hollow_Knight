@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bopwp74liofqy"]
+
+[ext_resource type="Script" path="res://safe_position.gd" id="1_3t3d5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_doeq5"]
+
+[node name="safe_position" type="Area3D"]
+script = ExtResource("1_3t3d5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 36.6381, 0, 0, 0, 4.95859, 0, 14.7846, 0)
+shape = SubResource("BoxShape3D_doeq5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

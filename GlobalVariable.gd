@@ -4,6 +4,8 @@ const save_file_path = "user://save/"
 const save_file_name = "save.json"
 const security_key = "EFA5426G"
 
+var safe_position = Vector3.ZERO
+
 @onready var player_data = Player_data.new()
 
 func save_data(path : String) :
@@ -41,7 +43,7 @@ func load_data(path : String) :
 		
 		player_data = Player_data.new()
 		
-		player_data.health = data.player_data.health
+		player_data.health = 5#data.player_data.health
 		player_data.global_position = Vector3(data.player_data.global_position.x, data.player_data.global_position.y, 0)
 		
 		

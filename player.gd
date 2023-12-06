@@ -5,10 +5,13 @@ const SPEED = 12.0
 const JUMP_VELOCITY = 18.5
 const JUMP_RELEASED_FORCE = 8.0
 const JUMP_FORCE = 22.0
+const LIFE_TEXTURE = [Rect2(27,44,101,118), Rect2(198,38,101,118), Rect2(387,31,101,118), Rect2(572,26,101,118), Rect2(781,21,101,118)]
 @export var INT_DOUBLE_JUMP = 0
 var DOUBLE_JUMP = INT_DOUBLE_JUMP
 var FRICTION = 1000
 var SPEEDDASH = 70
+
+var user_off = false
 
 var climb = true
 var fell = false
@@ -55,6 +58,10 @@ func _process(delta):
 
 
 func _physics_process(delta):
+	
+	if user_off :
+		return
+	
 	# Add the gravity
 	apply_gravity(delta)
 	hang()
@@ -97,7 +104,7 @@ func _physics_process(delta):
 	# COLLISION
 	if damage_collision: check_collision()
 	
-	GlobalVariable.player_data.global_position = position
+	#GlobalVariable.player_data.global_position = position
 	coord = position
 
 func check_collision():
@@ -110,13 +117,22 @@ func check_collision():
 
 
 func hit(mob):
-	GlobalVariable.player_data.health -= 10
+	GlobalVariable.player_data.health -= 1
+	if user_off :
+		return
+	if GlobalVariable.player_data.health == 0 :
+		death()
+		return
+	get_parent().get_node("HUD").get_node("Control").get_node("life").region_rect = LIFE_TEXTURE[5-GlobalVariable.player_data.health]
 	velocity.y += 10
 	velocity.x += 60 * mob.direction.x
 	damage_collision = false
 	$no_collision.start()
 
-
+func death():
+	user_off = true
+	hide()
+	get_parent().get_node("Transition_fondu").transition()
 
 
 func apply_gravity(delta):
@@ -244,6 +260,13 @@ func just_fall():
 		$fall_particles.get_node("GPUParticles3D").restart()
 		$fall_particles.get_node("GPUParticles3D").set_emitting(true)
 		
-		
-	
-	
+
+# TRANSITION FONDU NOIR
+func _on_transition_fondu_transitioned():
+	show()
+	GlobalVariable.load_data(GlobalVariable.save_file_path + GlobalVariable.save_file_name)
+	GlobalVariable.player_data.health = 5
+	get_parent().get_node("HUD").get_node("Control").get_node("life").region_rect = LIFE_TEXTURE[5-GlobalVariable.player_data.health]
+	position = GlobalVariable.player_data.global_position
+	get_parent().get_node("Camera3D").cam_pos(position)
+	user_off = false

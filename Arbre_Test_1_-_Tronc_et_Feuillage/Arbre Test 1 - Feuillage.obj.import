@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dkx6lyd2bxw5v"
+path="res://.godot/imported/Arbre Test 1 - Feuillage.obj-979c4e879cbe1059f7ca367f985ff439.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Arbre Test 1 - Feuillage.obj-979c4e879cbe1059f7ca367f985ff439.mesh"]
+
+source_file="res://Arbre_Test_1_-_Tronc_et_Feuillage/Arbre Test 1 - Feuillage.obj"
+dest_files=["res://.godot/imported/Arbre Test 1 - Feuillage.obj-979c4e879cbe1059f7ca367f985ff439.mesh", "res://.godot/imported/Arbre Test 1 - Feuillage.obj-979c4e879cbe1059f7ca367f985ff439.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
