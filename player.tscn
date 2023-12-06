@@ -9,11 +9,11 @@
 height = 2.45955
 
 [node name="Player" type="CharacterBody3D"]
-transform = Transform3D(-0.583541, 0, 0.812084, 0, 1, 0, -0.812084, 0, -0.583541, 0, 0, 0)
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, 0)
 script = ExtResource("1_tsgtd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.0995604, -5.96046e-08)
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0.2, 0.0995604, -5.96046e-08)
 shape = SubResource("CapsuleShape3D_spsqd")
 
 [node name="no_collision" type="Timer" parent="."]
@@ -47,23 +47,23 @@ wait_time = 0.32
 one_shot = true
 
 [node name="raycast_left" type="RayCast3D" parent="collision_with_wall"]
-transform = Transform3D(-0.00899424, 0.299889, -0.00803314, 1.99962, 0.0011951, -0.00575922, -0.0381674, -0.00805749, -0.299837, -0.164504, 0.95, 0.0132784)
+transform = Transform3D(-8.7423e-08, 0.3, 0, -2, -1.31134e-08, 0, 0, 0, 0.3, -0.164504, 0.95, 0.0132784)
 debug_shape_thickness = 4
 
 [node name="raycast_hang_left" type="RayCast3D" parent="collision_with_wall"]
-transform = Transform3D(-0.00899496, 0.299889, -0.00803321, 1.99962, 0.0011952, -0.00575922, -0.0381674, -0.00805756, -0.299837, -0.164504, 0.682902, 0.0132784)
+transform = Transform3D(-8.7423e-08, 0.3, 0, -2, -1.31134e-08, 0, 0, 0, 0.3, -0.164504, 0.682902, 0.0132784)
 debug_shape_thickness = 4
 
 [node name="raycast_right" type="RayCast3D" parent="collision_with_wall"]
-transform = Transform3D(-8.74228e-08, -0.3, 0, 2, -1.31134e-08, 6.65761e-16, -4.43841e-15, 2.91013e-23, 0.3, 0.55431, 0.95, 0.0225601)
+transform = Transform3D(-8.74228e-08, -0.3, 1.78814e-08, 2, -1.31134e-08, 6.65762e-16, 7.72393e-16, 1.78814e-08, 0.3, 0.55431, 0.95, 0.0225601)
 debug_shape_thickness = 4
 
 [node name="raycast_hang_right" type="RayCast3D" parent="collision_with_wall"]
-transform = Transform3D(-8.74228e-08, -0.3, 0, 2, -1.31134e-08, -1.56382e-15, 1.04255e-14, -6.83567e-23, 0.3, 0.55431, 0.682902, 0.0225601)
+transform = Transform3D(-8.74228e-08, -0.3, 1.78814e-08, 2, -1.31134e-08, -1.56383e-15, 1.56363e-14, 1.78814e-08, 0.3, 0.55431, 0.682902, 0.0225601)
 debug_shape_thickness = 4
 
 [node name="on_floor" type="RayCast3D" parent="."]
-transform = Transform3D(-4.76837e-07, 0, 0.3, 0, 0.3, 0, -2.00001, 0, -8.9407e-08, 0, -1.02035, 0)
+transform = Transform3D(-4.17233e-07, 0, 0.3, 0, 0.3, 0, -2.00001, 0, -7.45058e-08, 0, -1.02035, 0)
 debug_shape_thickness = 4
 
 [node name="timer_hang" type="Timer" parent="."]
@@ -71,19 +71,54 @@ wait_time = 5.0
 one_shot = true
 
 [node name="fall_particles" parent="." instance=ExtResource("2_nh3fq")]
-transform = Transform3D(1.5, 0, 3.57628e-07, 0, 1.5, 0, -3.57628e-07, 0, 1.5, 0, -0.680006, 0)
+transform = Transform3D(1.5, 0, 4.17233e-07, 0, 1.5, 0, -4.17233e-07, 0, 1.5, 0, -0.680006, 0)
 
 [node name="trail" parent="." instance=ExtResource("3_a8yvf")]
-transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, 0, 0, 0)
 
 [node name="main_chara" parent="." instance=ExtResource("5_1dpri")]
 transform = Transform3D(0.3, 0, 1.78814e-08, 0, 0.3, 0, -1.78814e-08, 0, 0.3, 0.288, -1.128, 0.088)
+
+[node name="Cube_001" parent="main_chara/Armaturecape/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+
+[node name="Cube_014" parent="main_chara/Armaturecape/Skeleton3D" index="1"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+
+[node name="Plane_002" parent="main_chara/ArmatureHead/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+
+[node name="Ailed_001" parent="main_chara/Armature_002/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
+
+[node name="Ailed" parent="main_chara/Armature_001/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0)
+
+[node name="Plane_001" parent="main_chara/Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+
+[node name="Plane_013" parent="main_chara/Armature/Skeleton3D" index="1"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+
+[node name="Plane_014" parent="main_chara/Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="main_chara/Armature_004" index="0"]
 bones/2/rotation = Quaternion(-0.0925695, 3.45653e-15, -2.20703e-08, 0.995706)
 bones/3/rotation = Quaternion(0.120528, -0.0253604, 0.204334, 0.971122)
 bones/6/rotation = Quaternion(0.0925694, -5.46355e-15, 2.20703e-08, 0.995706)
 bones/7/rotation = Quaternion(-0.120623, 0.0249093, 0.200699, 0.971879)
+
+[node name="Plane" parent="main_chara/Armature_004/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+
+[node name="jumpRight" type="RayCast3D" parent="."]
+transform = Transform3D(3, 0, -6.25278e-13, 0, 4, 0, 6.25278e-13, 0, 3, 1.8, 2.8545, -5.68434e-14)
+hit_from_inside = true
+
+[node name="jumpLeft" type="RayCast3D" parent="."]
+transform = Transform3D(3, 0, -1.08002e-12, 0, 4, 0, 1.08002e-12, 0, 3, -1.5, 2.8225, -5.68434e-14)
+hit_from_inside = true
 
 [connection signal="timeout" from="no_collision" to="." method="_on_no_collision_timeout"]
 [connection signal="timeout" from="timer_dash" to="." method="_on_timer_dash_timeout"]

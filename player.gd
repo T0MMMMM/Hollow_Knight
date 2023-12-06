@@ -27,7 +27,7 @@ var wall_right = false
 var wall_jump = false
 var last_velocity = velocity
 
-var enable_wall_jump = false
+var enable_wall_jump = true
 var enable_dash = false
 var update_friction = false
 
@@ -56,6 +56,9 @@ func _ready():
 func _process(delta):
 	$life.text = str(GlobalVariable.player_data.health)
 	$coord.text = str(coord)
+
+
+
 
 
 func _physics_process(delta):
@@ -147,11 +150,17 @@ func apply_gravity(delta):
 	elif !dashing:
 		FRICTION = 1000
 
-
+func jump_after_floor():
+	if $jumpRight.is_colliding() and looking_at == -1:
+		return true
+	elif $jumpLeft.is_colliding() and looking_at == 1:
+		return true
+	else:
+		return false
 
 
 func jump(direction, delta):
-	if is_on_floor():
+	if is_on_floor() or jump_after_floor():
 		hanging = true
 		climb = false
 		wall_left = true
@@ -163,7 +172,6 @@ func jump(direction, delta):
 		DOUBLE_JUMP = INT_DOUBLE_JUMP
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = JUMP_FORCE
-		return
 	
 	if velocity.y < 0:
 		climb = true
@@ -271,3 +279,4 @@ func _on_transition_fondu_transitioned():
 	position = GlobalVariable.player_data.global_position
 	get_parent().get_node("Camera3D").cam_pos(position)
 	user_off = false
+

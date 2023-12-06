@@ -6,6 +6,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p68rg"]
 albedo_texture = ExtResource("2_gfejg")
+albedo_texture_force_srgb = true
 uv1_scale = Vector3(10.215, 10.215, 10.215)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jnqj7"]
@@ -29,11 +30,11 @@ transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.62, -0.00984192, -0.500847
 visible = false
 
 [node name="Cube4" parent="." instance=ExtResource("1_xelnj")]
-transform = Transform3D(0.6, 0, 0, 0, 0.5, 0, 0, 0, 0.62, -0.00984192, 15.1887, 0.00675063)
+transform = Transform3D(0.582441, 0, 0, 0, 0.5, 0, 0, 0, 0.62, -0.00984192, 15.1887, 0.00675063)
 visible = false
 
 [node name="Cube5" parent="." instance=ExtResource("1_xelnj")]
-transform = Transform3D(0.0535126, 0, 0, 0, 4.93785, 0, 0, 0, 0.62, 0.855095, 9.22439, 0.00675063)
+transform = Transform3D(0.0535126, 0, 0, 0, 4.66075, 0, 0, 0, 0.774652, 0.855095, 8.96226, 0.00675063)
 visible = false
 
 [node name="Cube6" parent="." instance=ExtResource("1_xelnj")]
