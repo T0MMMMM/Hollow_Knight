@@ -50,7 +50,8 @@ var number_dash = 1
 @onready var timer_after_jump = $collision_with_wall/timer_after_jump
 
 func _ready():
-	position = GlobalVariable.player_data.global_position
+	#position = GlobalVariable.player_data.global_position
+	pass
 
 func _process(delta):
 	$life.text = str(GlobalVariable.player_data.health)

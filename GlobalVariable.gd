@@ -43,8 +43,8 @@ func load_data(path : String) :
 		
 		player_data = Player_data.new()
 		
-		player_data.health = 5#data.player_data.health
-		player_data.global_position = Vector3(data.player_data.global_position.x, data.player_data.global_position.y, 0)
+		player_data.health = data.player_data.health
+		#player_data.global_position = Vector3(data.player_data.global_position.x, data.player_data.global_position.y, 0)
 		
 		
 	else :
