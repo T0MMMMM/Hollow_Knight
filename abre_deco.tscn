@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://barpw7140qatn"]
+
+[ext_resource type="ArrayMesh" uid="uid://dkx6lyd2bxw5v" path="res://Arbre_Test_1_-_Tronc_et_Feuillage/Arbre Test 1 - Feuillage.obj" id="1_2gkwu"]
+[ext_resource type="Material" uid="uid://d28lq2qtgdyie" path="res://addons/proton_scatter/demos/assets/materials/m_pine_leaves.tres" id="2_beano"]
+[ext_resource type="ArrayMesh" uid="uid://dimqt0fqwuv4o" path="res://Arbre_Test_1_-_Tronc_et_Feuillage/Arbre Test 1 - Tronc.obj" id="2_dvt2x"]
+[ext_resource type="Texture2D" uid="uid://wp7lemp30rif" path="res://low poly trunk textu.png" id="3_omh5u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0wpds"]
+albedo_texture = ExtResource("3_omh5u")
+albedo_texture_force_srgb = true
+uv1_scale = Vector3(10.215, 10.215, 10.215)
+
+[node name="abreDeco" type="Node3D"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="ArbreTest1-Feuillage" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2gkwu")
+surface_material_override/0 = ExtResource("2_beano")
+
+[node name="ArbreTest1-Tronc" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_dvt2x")
+surface_material_override/0 = SubResource("StandardMaterial3D_0wpds")
