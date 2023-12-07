@@ -119,15 +119,18 @@ func check_collision():
 			collision.get_collider().move_and_collide(velocity)
 
 
-
-func hit(mob):
+func damage():
 	GlobalVariable.player_data.health -= 1
+	print("aa")
+	get_parent().get_node("HUD").get_node("Control").get_node("life").region_rect = LIFE_TEXTURE[5-GlobalVariable.player_data.health]
 	if user_off :
 		return
 	if GlobalVariable.player_data.health == 0 :
 		death()
 		return
-	get_parent().get_node("HUD").get_node("Control").get_node("life").region_rect = LIFE_TEXTURE[5-GlobalVariable.player_data.health]
+
+func hit(mob):
+	damage()
 	velocity.y += 10
 	velocity.x += 60 * mob.direction.x
 	damage_collision = false

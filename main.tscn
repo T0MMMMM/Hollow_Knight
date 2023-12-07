@@ -239,7 +239,7 @@ transform = Transform3D(-3.8385, 0, -1.12515, 0, 4, 0, 1.12515, 0, -3.8385, -215
 [node name="abreDeco30" parent="treesDeco" instance=ExtResource("5_48iqj")]
 transform = Transform3D(-3.1019, 0, -2.52552, 0, 4, 0, 2.52552, 0, -3.1019, -15.8182, -9, -865.258)
 
-[node name="obstacles" type="Node3D" parent="."]
+[node name="obstacles" type="Node" parent="."]
 
 [node name="Cube11" parent="obstacles" instance=ExtResource("4_g414b")]
 transform = Transform3D(-2.99606, 0, 0.0256103, 0, 0.5, 0, -0.153662, 0, -0.499344, -81.3002, 11.4829, 0.531978)
@@ -265,14 +265,19 @@ transform = Transform3D(-0.486183, 0, -1.8677, 0, 0.5, 0, 0.116731, 0, -7.77893,
 [node name="Cube15" parent="obstacles" instance=ExtResource("4_g414b")]
 transform = Transform3D(-0.494116, 0, 1.22375, 0, 0.5, 0, -0.0764844, 0, -7.90585, -75.1166, 37.6355, -8.44599)
 
-[node name="spike" parent="obstacles" instance=ExtResource("5_sag8u")]
-transform = Transform3D(-1.74799, 0, -0.11906, -0.000757644, 0.999913, 0.0476939, 0.0574931, 0.0131769, -3.61921, 19.5086, -10.3945, -0.355389)
+[node name="traps" type="Node" parent="."]
 
-[node name="save_zone" parent="obstacles" instance=ExtResource("8_tw6k0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1531, -1.20097, 0)
+[node name="spike" parent="traps" instance=ExtResource("5_sag8u")]
+transform = Transform3D(-4.22006, 0.040209, -0.122122, 0.168548, 0.995914, 0.0547362, 0.138913, 0.0131349, -3.77638, -70.5284, 1.67997, -0.355389)
 
-[node name="safe_position" parent="obstacles" instance=ExtResource("9_ek2t8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.62943, 0)
+[node name="safe_position" parent="traps" instance=ExtResource("9_ek2t8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.4499, 15.5752, 0)
+
+[node name="safe_position2" parent="traps" instance=ExtResource("9_ek2t8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.337, 66.2269, 0)
+
+[node name="save_zone" parent="traps" instance=ExtResource("8_tw6k0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.808, -1.20097, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -162, 59.8968, 18.4328)
@@ -303,7 +308,7 @@ TYPE = "add_wall_jump"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -152.087, 84.9558, 0)
 
 [node name="enemy" parent="." groups=["enemy"] instance=ExtResource("3_miybh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.2663, 3.00654, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 286.266, 5.00654, 0)
 
 [node name="Particles" type="Node3D" parent="."]
 
