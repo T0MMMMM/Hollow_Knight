@@ -34,7 +34,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.8749, 0)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 34.1751, 0)
-amount = 30
+amount = 200
 lifetime = 40.0
 visibility_aabb = AABB(0, 0, 0, 100, -200, 100)
 process_material = SubResource("ParticleProcessMaterial_3iqce")
@@ -42,8 +42,8 @@ draw_pass_1 = SubResource("QuadMesh_ciubk")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33.7679, 0)
-amount = 30
-lifetime = 40.0
+amount = 200
+lifetime = 30.0
 visibility_aabb = AABB(0, 0, 0, 100, -200, 100)
 process_material = SubResource("ParticleProcessMaterial_3iqce")
 draw_pass_1 = SubResource("QuadMesh_romj1")

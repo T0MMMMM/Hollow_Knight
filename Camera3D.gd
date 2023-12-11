@@ -1,6 +1,6 @@
 extends Camera3D
  
-@export var lerpspeed = 0.03
+@export var lerpspeed = 0.05
  
 func _ready():
 	position.x = GlobalVariable.player_data.global_position.x

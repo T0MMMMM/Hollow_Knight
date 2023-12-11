@@ -2,8 +2,8 @@ extends CharacterBody3D
 
 
 const SPEED = 12.0
-const JUMP_VELOCITY = 18.5
-const JUMP_RELEASED_FORCE = 8.0
+const JUMP_VELOCITY = 22.5
+const JUMP_RELEASED_FORCE = 10.0
 const JUMP_FORCE = 22.0
 const LIFE_TEXTURE = [Rect2(27,44,101,118), Rect2(198,38,101,118), Rect2(387,31,101,118), Rect2(572,26,101,118), Rect2(781,21,101,118)]
 @export var INT_DOUBLE_JUMP = 0
@@ -164,6 +164,7 @@ func jump_after_floor():
 
 func jump(direction, delta):
 	if is_on_floor() or jump_after_floor():
+		DOUBLE_JUMP = INT_DOUBLE_JUMP
 		hanging = true
 		climb = false
 		wall_left = true
@@ -172,7 +173,6 @@ func jump(direction, delta):
 		changeFriction = false
 		if enable_dash:
 			number_dash = 1
-		DOUBLE_JUMP = INT_DOUBLE_JUMP
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = JUMP_FORCE
 	
@@ -210,7 +210,7 @@ func jump(direction, delta):
 	if Input.is_action_just_released("jump") && velocity.y > JUMP_RELEASED_FORCE:
 		velocity.y = JUMP_RELEASED_FORCE
 	
-	if Input.is_action_just_pressed("jump") && DOUBLE_JUMP > 0 && !raycast_left.is_colliding() && !raycast_right.is_colliding():
+	if Input.is_action_just_pressed("jump") && !is_on_floor() && DOUBLE_JUMP > 0 && !raycast_left.is_colliding() && !raycast_right.is_colliding():
 		velocity.y = JUMP_FORCE
 		DOUBLE_JUMP -= 1
 		

@@ -21,7 +21,7 @@ func _on_body_entered(body):
 
 
 func add_jump():
-	get_parent().get_node("Player").INT_DOUBLE_JUMP += 5
+	get_parent().get_node("Player").INT_DOUBLE_JUMP += 1
 	
 func add_dash():
 	get_parent().get_node("Player").enable_dash = true
